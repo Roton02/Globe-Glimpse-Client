@@ -16,11 +16,11 @@ const AllTourist = () => {
               <div className="flex justify-between px-6">
               <div>
               <p>TravelTime : {ld.TravelTime}</p>
-               <p className="flex items-center"><span className="mr-2">Cost :</span> <LuCircleDollarSign /> {ld.averageCost}  </p>
+               <p className="flex items-center"><span className="mr-2">Cost :</span>  {ld.averageCost} <LuCircleDollarSign />  </p>
               </div>
               <div>
               <p>seasonality :{ld.seasonality}</p>
-               <p> Visit : {ld.visitor} person</p>
+               <p> Visit per Year : {ld.visitor} </p>
               </div>
               </div>
              <div className=" p-5">
