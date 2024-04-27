@@ -8,10 +8,11 @@ AOS.init();
 
 const Root = () => {
     return (
-        <div className="my-8 max-w-7xl px-3 mx-auto">
+        <div className="py-1 max-w-7xl  px-3 mx-auto">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
+            {/* bg-gradient-to-b from-slate-200 via-red-50 to-green-100 */}
         </div>
     );
 };

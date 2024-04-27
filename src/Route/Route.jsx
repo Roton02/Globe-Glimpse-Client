@@ -6,6 +6,12 @@ import Register from "../pages/Register/Register";
 import Root from "../Root/Root";
 import Home from "../Home/Home";
 import ErrorPage from "../pages/ErrorePage/ErrorPage";
+import AllTourist from "../pages/AllTourist/AllTourist";
+import MyList from "../pages/MyList/MyList";
+import AddTourist from "../pages/AddTourist/AddTourist";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdateTourist from "../pages/MyList/UpdateTourist";
+import DetailsPage from "../pages/MyList/DetailsPage";
 
 
   const router = createBrowserRouter([
@@ -16,7 +22,8 @@ import ErrorPage from "../pages/ErrorePage/ErrorPage";
       children: [
         {
           path: '/',
-          element: <Home></Home>
+          element: <Home></Home>,
+          loader:()=>fetch('http://localhost:5000/addTousristSpot')
         },
         
         {
@@ -27,6 +34,31 @@ import ErrorPage from "../pages/ErrorePage/ErrorPage";
           path:'/register',
           element: <Register></Register>
         },
+        {
+          path:'/allTourist',
+          element:<AllTourist></AllTourist>,
+          loader:()=>fetch('http://localhost:5000/addTousristSpot')
+        },
+        {
+          path:'/myList',
+          element: <PrivateRoute> <MyList></MyList></PrivateRoute> 
+        },
+        {
+          path:'addTourist',
+          element:<PrivateRoute><AddTourist></AddTourist></PrivateRoute>  
+        },
+        {
+          path:'/updateTourist/:id',
+          element: <PrivateRoute><UpdateTourist></UpdateTourist></PrivateRoute>,
+          loader:({params})=> fetch(`http://localhost:5000/updateTourist/${params.id}`)
+        },
+        {
+          path:'/details/:id',
+          element: <PrivateRoute>
+              <DetailsPage></DetailsPage>
+          </PrivateRoute> ,
+          loader:({params})=> fetch(`http://localhost:5000/details/${params.id}`)
+        }
        
       ]
     },
