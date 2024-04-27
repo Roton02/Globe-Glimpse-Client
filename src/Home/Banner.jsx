@@ -1,8 +1,9 @@
 
+
 import { useState } from 'react';
   const Carosel = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
-  const sliders = [{img:'https://i.ibb.co/TgKTjGz/b1.jpg', title: "Travelling Essay", des: "Travelling is important as it teaches us a lot of things. You can learn new skills, new languages, new cultures. "}, {img: 'https://i.ibb.co/p4LjnYb/sl2222.jpg', title: " Private isLand ", des: "An island is a body of land surrounded by water. Continents are also surrounded by water, but because they are so big, they are not considered islands.  "}, {img: 'https://i.ibb.co/qWzZhGR/villa22.jpg', title: "Penthouse", des: "A Penthouse is typically an apartment on the highest floor of an apartment building.  "}];
+  const sliders = [{img:'https://i.ibb.co/y6bsNg6/s5.jpg', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}, {img: 'https://i.ibb.co/Srhq03r/s111.jpg', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}, {img: ' https://i.ibb.co/zXtScGv/s222222.jpg ', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}];
   const prevSlider = () => setCurrentSlider((currentSlider) => currentSlider === 0 ? sliders.length - 1 : currentSlider - 1);
   const nextSlider = () => setCurrentSlider((currentSlider) => currentSlider === sliders.length - 1 ? 0 : currentSlider + 1);
   const isSmallScreen = window.innerWidth <= 768;

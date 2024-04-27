@@ -4,8 +4,8 @@ const ClientReview = () => {
   return (
     <div>
         
-      <Marquee>
-        <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800 mx-5">
+      <Marquee pauseOnHover={true}>
+        <div className="container flex flex-col w-full max-w-lg p-6  divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800 mx-5">
           <div className="flex justify-between p-4">
             <div className="flex space-x-4">
               <div>
@@ -44,7 +44,7 @@ const ClientReview = () => {
             </p>
           </div>
         </div>
-        <div className=" mx-5 container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800">
+        <div className="  container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800">
           <div className="flex justify-between p-4">
             <div className="flex space-x-4">
               <div>
@@ -83,7 +83,7 @@ const ClientReview = () => {
             </p>
           </div>
         </div>
-        <div className=" mx-5 container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800">
+        <div className=" mx-5 container flex flex-col w-full max-w-lg p-6  divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800">
           <div className="flex justify-between p-4">
             <div className="flex space-x-4">
               <div>

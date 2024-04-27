@@ -7,7 +7,7 @@ const Contract = () => {
 			<div className="p-10">
 				<p>Contact</p>
 			<h1 data-aos="zoom-in" data-aos-duration='1000' className="text-3xl  md:text-4xl my-8 font-bold">Globe-Glimpse</h1>
-			<p data-aos="fade-right" data-aos-duration='1000' className="pt-2 pb-4">Contact us to unlock the door to your perfect sale and rental property.</p>
+			<p data-aos="fade-right" data-aos-duration='1000' className="pt-2 pb-4">Contact us to unlock the door to your perfect Tourist-Spot.</p>
 			<div data-aos="fade-right" data-aos-duration='1000' className="space-y-4">
 				<p className="flex items-center">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5 mr-2 sm:mr-6">
