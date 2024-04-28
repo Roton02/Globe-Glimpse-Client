@@ -7,7 +7,7 @@ const ReleteCountryData = () => {
   if (loaderData.length < 1) {
     return <div className="bg-gray-50 py-10 rounded-xl">
       <img className="flex justify-center items-center w-96 mx-auto" src="https://i.ibb.co/NpYCXDr/nai.jpg" alt="" />
-      <h1 className="text-4xl text-center  font-bold text-red-600">There are no spot matching this country !</h1>
+      <h1 className=" text-xl md:text-3xl text-center  font-bold text-red-600">There are no spot matching this country !</h1>
     </div>
   }
   return (
@@ -16,7 +16,7 @@ const ReleteCountryData = () => {
         return (
           <div key={ld._id} className="card  md:card-side bg-base-100 border">
             <figure>
-              <img className="w-52    h-full" src={ld.image} alt="Movie" />
+              <img className="md:w-52  w-full  h-full" src={ld.image} alt="Movie" />
             </figure>
             <div className="card-body ">
               <h2 className="card-title font-bold">{ld.Tourist}</h2>

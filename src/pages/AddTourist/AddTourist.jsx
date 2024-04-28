@@ -126,7 +126,7 @@ const AddTourist = () => {
         <br />
         <input
           placeholder="Enter Average Cost"
-          className="border border-black  p-2 rounded-md "
+          className="border border-black w-full  p-2 rounded-md "
           type="number"
           id="average_cost"
           name="cost"

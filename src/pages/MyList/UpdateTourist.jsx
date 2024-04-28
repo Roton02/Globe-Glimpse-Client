@@ -85,8 +85,8 @@ const UpdateTourist = () => {
           </div>
         </div>
         {/*  */}
-        <div className="flex items-center justify-between gap-2">
-          <div className="w-1/2">
+        <div className="md:flex items-center justify-between gap-2">
+          <div className="md:w-1/2">
             <label htmlFor="country_Name">Country Name:</label>
             <br />
             <select defaultValue={loaderData.countryName} name="desh" className=" border border-black p-2 rounded-md w-full">
@@ -100,7 +100,7 @@ const UpdateTourist = () => {
             </select>
           </div>
 
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <label htmlFor="location">Total Visitors Per Year:</label>
             <br />
             <input 
@@ -117,14 +117,14 @@ const UpdateTourist = () => {
 
         
 
-       <div className="flex justify-between gap-3">
-      <div className="w-1/3">
+       <div className="flex flex-col md:flex-row justify-between gap-3">
+      <div className="w-full md:w-1/3">
       <label htmlFor="average_cost">Average Cost:</label>
         <br />
         <input 
         defaultValue={loaderData.averageCost}
           placeholder="Enter Average Cost"
-          className="border border-black  p-2 rounded-md "
+          className="border border-black w-full p-2 rounded-md "
           type="number"
           id="average_cost"
           name="cost"
