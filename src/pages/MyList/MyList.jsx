@@ -50,16 +50,16 @@ const MyList = () => {
     }
     
     return (
-        <div className="md:px-10">
+        <div className="">
              
         <div className="overflow-x-auto border md:w-4/5 mx-auto bg-green-100 rounded-xl border-black  ">
 		<table className="min-w-full text-xs">
 			<thead className="dark:bg-gray-300 bg-slate-600 mt-10">
 				<tr className="text-left text-white">
                 <th></th>
-					<th className="p-3">Tourist Name</th>
-					<th className="p-3">TravelTime</th>
-					<th className="p-3">countryName</th>
+					<th className="p-3">Tourist </th>
+					<th className="p-3">Time</th>
+					<th className="p-3">country</th>
 					<th className="p-3">Update</th>
 					<th className="p-3">Delete</th>
 					
@@ -83,7 +83,7 @@ const MyList = () => {
                             </td>
                             <td className="">
                                 <Link to={`/updateTourist/${ld._id}`}>
-                               <button className="btn btn-sm ml-2 btn-primary"><FaRegEdit /></button>
+                               <button className="btn btn-sm ml-2 bg-pink-600"><FaRegEdit /></button>
                                 </Link>
                             </td>
                             <td className="">

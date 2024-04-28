@@ -55,7 +55,7 @@ const UpdateTourist = () => {
         
         {/*  */}
         <div className="md:flex gap-9">
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <label htmlFor="image">Tourist Spot Name:</label>
             <br />
             <input 
@@ -69,7 +69,7 @@ const UpdateTourist = () => {
             />
             <br />
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <label htmlFor="image">Photo URL:</label>
             <br />
             <input 
@@ -85,7 +85,7 @@ const UpdateTourist = () => {
           </div>
         </div>
         {/*  */}
-        <div className="md:flex gap-9">
+        <div className="flex items-center justify-between gap-2">
           <div className="w-1/2">
             <label htmlFor="country_Name">Country Name:</label>
             <br />

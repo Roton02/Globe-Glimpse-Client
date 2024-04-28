@@ -45,7 +45,7 @@ const AddTourist = () => {
   return (
     <div className="md:w-2/3 mx-auto">
       
-        <div className="bg-green-950 h-24 flex justify-around  w-full rounded-t-xl">
+        <div className="bg-green-800 h-24 flex justify-around  w-full rounded-t-xl">
           <div>
           
           </div>
@@ -59,7 +59,7 @@ const AddTourist = () => {
         
         {/*  */}
         <div className="md:flex gap-9">
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <label htmlFor="image">Tourist Spot Name:</label>
             <br />
             <input
@@ -72,7 +72,7 @@ const AddTourist = () => {
             />
             <br />
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <label htmlFor="image">Photo URL:</label>
             <br />
             <input
@@ -88,7 +88,7 @@ const AddTourist = () => {
         </div>
         {/*  */}
         <div className="md:flex gap-9">
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <label htmlFor="country_Name">Country Name:</label>
             <br />
             <select name="desh" className=" border border-black p-2 rounded-md w-full">
@@ -104,7 +104,7 @@ const AddTourist = () => {
             </select>
           </div>
 
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <label htmlFor="location">Total Visitors Per Year:</label>
             <br />
             <input
@@ -120,8 +120,8 @@ const AddTourist = () => {
 
         
 
-       <div className="flex justify-between gap-3">
-      <div className="w-1/3">
+       <div className="flex md:flex-row flex-col justify-between gap-3">
+      <div className="">
       <label htmlFor="average_cost">Average Cost:</label>
         <br />
         <input

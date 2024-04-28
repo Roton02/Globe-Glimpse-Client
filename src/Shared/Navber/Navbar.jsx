@@ -89,7 +89,7 @@ useEffect(() => {
         </div>
         <Link
           to="/"
-          className="btn  btn-ghost text-base md:text-xl lg:text-3xl mr-0 font-bold animate__animated animate__swing animate__delay-0.5s"
+          className="btn  btn-ghost text-sm md:text-xl lg:text-3xl  font-bold animate__animated animate__swing animate__delay-0.5s"
         >
           <span className="text-pink-700">Globe</span> Glimpse
         </Link>

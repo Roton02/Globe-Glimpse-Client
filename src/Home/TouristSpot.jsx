@@ -4,13 +4,13 @@ const TouristSpot = ({loaderData}) => {
     return (
         <div>
             
-            <div className="grid grid-cols-3 gap-10 my-7">
+            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10 my-7">
             {
                 loaderData.slice(0,6).map(ld => <div key={ld._id} className="relative card shadow-xl">
                 <figure className=" ">
                   <img  src={ld.image} alt="Shoes" className="rounded-xl hover:scale-95 transition delay-50 bg-slate-400 bg-opacity-10 " />
                 </figure>
-               <div className="flex justify-between absolute top-44 ">
+               <div className="flex justify-between absolute top-40 ">
                <div className="pl-10 text-white">
                   <h2 className="card-title font-bold">{ld.Tourist}</h2>
                   <p className="text-sm"> {ld.countryName}</p>
