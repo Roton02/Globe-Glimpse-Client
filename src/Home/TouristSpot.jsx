@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const TouristSpot = ({loaderData}) => {
     return (
         <div>
-            <h1 className="text-3xl font-bold text-center my-5 ">Tourists Spots</h1>
+            
             <div className="grid grid-cols-3 gap-10 my-7">
             {
                 loaderData.slice(0,6).map(ld => <div key={ld._id} className="relative card shadow-xl">

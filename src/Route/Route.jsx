@@ -12,6 +12,7 @@ import AddTourist from "../pages/AddTourist/AddTourist";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UpdateTourist from "../pages/MyList/UpdateTourist";
 import DetailsPage from "../pages/MyList/DetailsPage";
+import ReleteCountryData from "../Home/ReleteCountryData";
 
 
   const router = createBrowserRouter([
@@ -44,7 +45,7 @@ import DetailsPage from "../pages/MyList/DetailsPage";
           element: <PrivateRoute> <MyList></MyList></PrivateRoute> 
         },
         {
-          path:'addTourist',
+          path:'/addTourist',
           element:<PrivateRoute><AddTourist></AddTourist></PrivateRoute>  
         },
         {
@@ -58,6 +59,11 @@ import DetailsPage from "../pages/MyList/DetailsPage";
               <DetailsPage></DetailsPage>
           </PrivateRoute> ,
           loader:({params})=> fetch(`http://localhost:5000/details/${params.id}`)
+        },
+        {
+          path:'/ReleteCountryData/:countryName',
+          element: <ReleteCountryData></ReleteCountryData>,
+          loader:({params})=>fetch(`http://localhost:5000/ReleteCountryData/${params.countryName}`)
         }
        
       ]
