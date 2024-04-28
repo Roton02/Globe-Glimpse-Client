@@ -7,6 +7,7 @@ import Contract from "./Contract";
 
 const Home = () => {
     const loaderData = useLoaderData()
+    
     return (
         <div>
             <Banner></Banner>

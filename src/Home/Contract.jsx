@@ -6,7 +6,7 @@ const Contract = () => {
 		<div className="py-20 md:py-0 col-span-2 rounded-l-xl text-white bg-slate-900 ">
 			<div className="p-10">
 				<p>Contact</p>
-			<h1 data-aos="zoom-in" data-aos-duration='1000' className="text-3xl  md:text-4xl my-8 font-bold">Globe-Glimpse</h1>
+			<h1 data-aos="zoom-in" data-aos-duration='1000' className="text-3xl  md:text-4xl my-8 font-bold"><span className="text-pink-700">Globe</span> Glimpse</h1>
 			<p data-aos="fade-right" data-aos-duration='1000' className="pt-2 pb-4">Contact us to unlock the door to your perfect Tourist-Spot.</p>
 			<div data-aos="fade-right" data-aos-duration='1000' className="space-y-4">
 				<p className="flex items-center">

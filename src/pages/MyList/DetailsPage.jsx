@@ -26,7 +26,7 @@ const DetailsPage = () => {
         </p><hr />
         <p className=" my-1 "> <span className=" font-bold underline ">About Spot: </span>{loaderData.short_description}</p> <hr />
         <Link  to="/addTourist"
-            className="rounded-md mt-10   py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-black hover:bg-black transition  text-black   duration-500  hover:text-white"
+            className="rounded-md mt-10   py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-black hover:bg-black transition  light:text-black  dark:text-white  duration-500  hover:text-white"
           >
             <button  className="w-full px-10  mt-8 "><span className="absolute w-64 h-0  duration-300 origin-center rotate-45  bg-black "></span>
             <span className="relative">

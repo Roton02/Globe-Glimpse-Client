@@ -1,6 +1,7 @@
 
 
 import { useState } from 'react';
+import { Typewriter } from 'react-simple-typewriter';
   const Carosel = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
   const sliders = [{img:'https://i.ibb.co/y6bsNg6/s5.jpg', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}, {img: 'https://i.ibb.co/Srhq03r/s111.jpg', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}, {img: ' https://i.ibb.co/zXtScGv/s222222.jpg ', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}];
@@ -24,7 +25,8 @@ import { useState } from 'react';
     {/* text container here */}
     <div className="w-1/2 hidden md:flex flex-col px-4 ml-16 left-0 absolute drop-shadow-lg text-white rounded-lg">
         <h1 data-aos="fade-right" data-aos-duration='2000' className="text-3xl lg:text-5xl mb-3 font-bold">{sliders[currentSlider].title}</h1>
-        <p data-aos="zoom-in" data-aos-duration='3000' className="  sm:text-sm md:text-base text-xl lg:text-2xl">{sliders[currentSlider].des}</p>
+        <p className="  sm:text-sm md:text-base text-xl lg:text-2xl">
+            <Typewriter loop={10} cursor={true} cursorStyle={'_'} words={['It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country ','Coxs Bazar, The Sundarbans, Srimangal, Lalbagh Fort, Rangamati, Bandarban, Saint Martin, Paharpur, Kuakata, Bagerhat, Sonargaon, Comilla, Bogra, Gaur, Barisal, Puthia, Ahsan Manzil Museum, Bangladesh National Parliament and many more','Stay in our opulent villas with private pools, lush gardens, and dedicated butler service. Our white sand beach invites guests to bask in Balis tropical sunshine. On-Site Activities']}></Typewriter></p>
     </div>
     {/* slider container */}
     <div className="w-1/2 ml-auto overflow-hidden  absolute -right-5 lg:-right-16 z-20 px-4 py-10">
