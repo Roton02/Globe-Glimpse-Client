@@ -1,3 +1,4 @@
+*/My Category Name is: 'Southeast Asia'
 */WebSite Name :Globe Glimpse
 */Live Site url: 'https://wondrous-daffodil-69d353.netlify.app/'
 
@@ -10,15 +11,13 @@
 
 * You will find all the spots that you add as a user on the my list  page. And from there you can customize your added data if you want.
 
-* Even if you are not our user, you can view some of our stored images from the gallery page and see some FAQs from our past clients.
+* You can delete the data from My List page and if you click on the update button, you will be redirected to the update page, from there you can update the data by entering the update value in the form and confirming OK.
 
-* You as a user will get all your data in the profile image dropdown which is arranged in a very nice way and you can see your name only when you are in the profile image. It's very nice.
+* You can see all the spots related to the country you click on from the country section.
 
-* As a user, you may need to re-update some of your data so we are keeping that wonderful opportunity for you. For that, you can go to the second page of the profile image dropdown and update it very easily.
+* Moreover, it has dark mood implementation and numerous client reviews and benefits to contract.
 
-* Besides, after updating, a profile card has been made with your information to view the updated data so that you don't have to go back.
-
-* Besides, there are also blogs and other facilities. All in all, I have full confidence that my website will create a great experience for you as a user and you will enjoy it a lot. So why delay, open your account now and avail all the benefits. 
+* All in all, I have full confidence that my website will create a great experience for you as a user and you will enjoy it a lot. So why delay, visit now and avail all the benefits. 
 
 */The packages used are:
 *   React-simple-typewriter
