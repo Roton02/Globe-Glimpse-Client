@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import { useContext } from "react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const UpdateTourist = () => {
     const { user} = useContext(AuthContext);
@@ -63,7 +64,10 @@ const UpdateTourist = () => {
       };
     return (
         <div className="md:w-2/3 mx-auto">
-      
+      <Helmet>
+        <title>UpdateTourist</title>
+        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+      </Helmet>
         <div className="bg-gradient-to-r from-teal-800 to-blue-500 h-24 flex justify-around  w-full rounded-t-xl">
             <div>
               <h1 className="text-white font-bold pt-5 text-3xl">Update Spot Details</h1>

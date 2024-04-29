@@ -4,6 +4,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const MyList = () => {
     const { user} = useContext(AuthContext);
@@ -51,7 +52,10 @@ const MyList = () => {
     
     return (
         <div className="">
-             
+             <Helmet>
+        <title>My List</title>
+        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+      </Helmet>
         <div className="overflow-x-auto border md:w-4/5 mx-auto bg-green-100 rounded-xl border-black  ">
 		<table className="min-w-full text-xs">
 			<thead className="dark:bg-gray-300 bg-slate-600 mt-10">

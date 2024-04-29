@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 import { FaArrowDown } from "react-icons/fa";
 import { LuCircleDollarSign } from "react-icons/lu";
 import { Link, useLoaderData } from "react-router-dom";
@@ -24,7 +25,10 @@ const AllTourist = () => {
   }
   return (
     <div>
-     
+     <Helmet>
+        <title>All Tourist</title>
+        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+      </Helmet>
       <div className="bg-gradient-to-r from-gray-100 from-10%  via-30% to-[#F9F3F9] to-90% dark:bg-gradient-to-r dark:from-[#f2f2d8] dark:from-10% dark:via-[#FCE7DC] dark:via-30% dark:to-[#fae1d4] gadgetContainer">
         <div className="flex flex-col gap-4 lg:flex-row justify-between items-center py-4">
           <div className="flex pl-10 gap-2">

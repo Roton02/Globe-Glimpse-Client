@@ -4,12 +4,17 @@ import ClientReview from "./ClientReview";
 import CountriesSection from "./CountriesSection";
 import TouristSpot from "./TouristSpot";
 import Contract from "./Contract";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const loaderData = useLoaderData()
     
     return (
         <div>
+            <Helmet>
+        <title>Home</title>
+        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+      </Helmet>
             <Banner></Banner>
             <h1 className="text-4xl my-5 text-center underline font-bold">Tourists Spots </h1>
             <TouristSpot loaderData={loaderData}></TouristSpot>

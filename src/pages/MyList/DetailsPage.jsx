@@ -1,4 +1,5 @@
 // import { IoLocationSharp } from "react-icons/io5";
+import { Helmet } from "react-helmet-async";
 import { CgDollar } from "react-icons/cg";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -7,6 +8,10 @@ const DetailsPage = () => {
     console.log(loaderData);
     return (
         <div>
+          <Helmet>
+        <title>Details</title>
+        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+      </Helmet>
             <div className="grid grid-cols-1 border-2 mt-2 rounded-xl overflow-y-hidden overflow-x-hidden lg:grid-cols-5 gap-2   p-2 ">
        <div  className="col-span-3 p-4  my-auto ">
         <img className=" w-full rounded-lg " src={loaderData.image} alt="" />

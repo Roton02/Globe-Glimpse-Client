@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const AddTourist = () => {
@@ -44,6 +45,10 @@ const AddTourist = () => {
 
   return (
     <div className="md:w-2/3 mx-auto">
+      <Helmet>
+        <title>Add New</title>
+        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+      </Helmet>
       
         <div className="bg-gradient-to-r from-teal-800 to-blue-500 h-52 flex  justify-center  w-full rounded-t-xl">
           <div>

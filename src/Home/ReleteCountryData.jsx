@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -6,12 +7,20 @@ const ReleteCountryData = () => {
   console.log(loaderData);
   if (loaderData.length < 1) {
     return <div className="bg-gray-50 py-10 rounded-xl">
+      <Helmet>
+        <title>Releted-Country</title>
+        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+      </Helmet>
       <img className="flex justify-center items-center w-96 mx-auto" src="https://i.ibb.co/9nRx15g/not.jpg" alt="" />
       <h1 className=" text-xl md:text-3xl text-center  font-bold text-red-600">There are no spot matching this country !</h1>
     </div>
   }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <Helmet>
+        <title>Releted-Country</title>
+        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
+      </Helmet>
       {loaderData.map((ld) => {
         return (
           <div key={ld._id} className="card  md:card-side bg-base-100 border">
