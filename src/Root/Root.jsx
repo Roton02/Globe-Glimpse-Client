@@ -13,7 +13,9 @@ const Root = () => {
     return (
         <div className="py-1 max-w-7xl overflow-x-hidden  px-3 mx-auto">
             <Navbar></Navbar>
+            <div className='min-h-[calc(100vh-117px)]'>
             <Outlet></Outlet>
+            </div>
             <Footer></Footer>
             {/* bg-gradient-to-b from-slate-200 via-red-50 to-green-100 */}
         </div>
