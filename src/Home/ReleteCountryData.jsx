@@ -6,7 +6,7 @@ const ReleteCountryData = () => {
   console.log(loaderData);
   if (loaderData.length < 1) {
     return <div className="bg-gray-50 py-10 rounded-xl">
-      <img className="flex justify-center items-center w-96 mx-auto" src="https://i.ibb.co/NpYCXDr/nai.jpg" alt="" />
+      <img className="flex justify-center items-center w-96 mx-auto" src="https://i.ibb.co/9nRx15g/not.jpg" alt="" />
       <h1 className=" text-xl md:text-3xl text-center  font-bold text-red-600">There are no spot matching this country !</h1>
     </div>
   }

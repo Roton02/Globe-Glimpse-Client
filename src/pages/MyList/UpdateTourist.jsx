@@ -23,7 +23,17 @@ const UpdateTourist = () => {
         const short_description = form.short_description.value;
         const newItem ={name,email,image,Tourist,visitor,countryName,averageCost,TravelTime,seasonality,located,short_description}
         console.log(newItem);
-        fetch(`http://localhost:5000/updateTourist/${loaderData._id}`, {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "Do you want to change previous data?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, Update it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch(`http://localhost:5000/updateTourist/${loaderData._id}`, {
             method:'PATCH',
             body:JSON.stringify(newItem),
             headers:{
@@ -38,8 +48,18 @@ const UpdateTourist = () => {
                     text: "Cheek My_List or Tourist spot and get the updated value",
                     icon: "success"
                   });
+            }else{
+              Swal.fire({
+                title: "No update!",
+                text: "You haven't changed anything!",
+                icon: "error"
+              });
             }
         })
+          }
+        });
+
+        
       };
     return (
         <div className="md:w-2/3 mx-auto">

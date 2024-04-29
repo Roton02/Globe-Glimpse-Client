@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
   const Carosel = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
-  const sliders = [{img:'https://i.ibb.co/y6bsNg6/s5.jpg', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}, {img: 'https://i.ibb.co/Srhq03r/s111.jpg', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}, {img: ' https://i.ibb.co/zXtScGv/s222222.jpg ', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}];
+  const sliders = [{img:' https://i.ibb.co/yWP1rr6/s20.jpg', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}, {img: 'https://i.ibb.co/y6bsNg6/s5.jpg', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}, {img: ' https://i.ibb.co/zXtScGv/s222222.jpg ', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}];
   const prevSlider = () => setCurrentSlider((currentSlider) => currentSlider === 0 ? sliders.length - 1 : currentSlider - 1);
   const nextSlider = () => setCurrentSlider((currentSlider) => currentSlider === sliders.length - 1 ? 0 : currentSlider + 1);
   const isSmallScreen = window.innerWidth <= 768;
