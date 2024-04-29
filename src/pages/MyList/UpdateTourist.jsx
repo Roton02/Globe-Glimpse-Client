@@ -33,7 +33,7 @@ const UpdateTourist = () => {
           confirmButtonText: "Yes, Update it!"
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:5000/updateTourist/${loaderData._id}`, {
+            fetch(`https://globeglimpse.vercel.app/updateTourist/${loaderData._id}`, {
             method:'PATCH',
             body:JSON.stringify(newItem),
             headers:{

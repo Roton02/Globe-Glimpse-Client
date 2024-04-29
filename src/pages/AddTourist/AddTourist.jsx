@@ -21,7 +21,7 @@ const AddTourist = () => {
     const short_description = form.short_description.value;
     const newItem ={name,email,image,Tourist,visitor,countryName,averageCost,TravelTime,seasonality,located,short_description}
     console.log(newItem);
-    fetch('http://localhost:5000/addTousristSpot',{
+    fetch('https://globeglimpse.vercel.app/addTousristSpot',{
       method:'POST',
       body:JSON.stringify(newItem),
       headers:{

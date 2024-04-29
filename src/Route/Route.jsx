@@ -24,7 +24,7 @@ import ReleteCountryData from "../Home/ReleteCountryData";
         {
           path: '/',
           element: <Home></Home>,
-          loader:()=>fetch('http://localhost:5000/addTousristSpot')
+          loader:()=>fetch('https://globeglimpse.vercel.app/addTousristSpot')
         },
         
         {
@@ -38,7 +38,7 @@ import ReleteCountryData from "../Home/ReleteCountryData";
         {
           path:'/allTourist',
           element:<AllTourist></AllTourist>,
-          loader:()=>fetch('http://localhost:5000/addTousristSpot')
+          loader:()=>fetch('https://globeglimpse.vercel.app/addTousristSpot')
         },
         {
           path:'/myList',
@@ -51,19 +51,19 @@ import ReleteCountryData from "../Home/ReleteCountryData";
         {
           path:'/updateTourist/:id',
           element: <PrivateRoute><UpdateTourist></UpdateTourist></PrivateRoute>,
-          loader:({params})=> fetch(`http://localhost:5000/updateTourist/${params.id}`)
+          loader:({params})=> fetch(`https://globeglimpse.vercel.app/updateTourist/${params.id}`)
         },
         {
           path:'/details/:id',
           element: <PrivateRoute>
               <DetailsPage></DetailsPage>
           </PrivateRoute> ,
-          loader:({params})=> fetch(`http://localhost:5000/details/${params.id}`)
+          loader:({params})=> fetch(`https://globeglimpse.vercel.app/details/${params.id}`)
         },
         {
           path:'/ReleteCountryData/:countryName',
           element: <ReleteCountryData></ReleteCountryData>,
-          loader:({params})=>fetch(`http://localhost:5000/ReleteCountryData/${params.countryName}`)
+          loader:({params})=>fetch(`https://globeglimpse.vercel.app/ReleteCountryData/${params.countryName}`)
         }
        
       ]
