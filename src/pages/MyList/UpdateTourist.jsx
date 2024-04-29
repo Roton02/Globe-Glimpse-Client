@@ -64,9 +64,9 @@ const UpdateTourist = () => {
     return (
         <div className="md:w-2/3 mx-auto">
       
-        <div className="bg-green-950 h-24 flex justify-around  w-full rounded-t-xl">
+        <div className="bg-gradient-to-r from-teal-800 to-blue-500 h-24 flex justify-around  w-full rounded-t-xl">
             <div>
-              <h1 className="text-white font-bold pt-5 text-3xl">Update FORM</h1>
+              <h1 className="text-white font-bold pt-5 text-3xl">Update Spot Details</h1>
               <p></p>
             </div>
         </div>

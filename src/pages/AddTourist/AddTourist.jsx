@@ -45,13 +45,13 @@ const AddTourist = () => {
   return (
     <div className="md:w-2/3 mx-auto">
       
-        <div className="bg-green-800 h-24 flex justify-around  w-full rounded-t-xl">
+        <div className="bg-gradient-to-r from-teal-800 to-blue-500 h-52 flex  justify-center  w-full rounded-t-xl">
           <div>
-          
+          <img className="h-52 w-full" src='https://i.ibb.co/SvDjR5d/download.png' alt="" />
           </div>
-            <div className="text-white font-bold">
-              <h1 className=" pt-5 text-3xl">REGISTRATION FORM</h1>
-              <p >Fill the form and add spots of your choice.</p>
+            <div className="text-white font-bold my-auto">
+              <h1 className=" text-3xl"><span className="text-pink-950"> REGISTRATION</span> FORM</h1>
+              <p className="">Fill the form and add spots of your choice.</p>
             </div>
         </div>
       <form className=" pt-10 space-y-2 pb-5 bg-gray-100 rounded-b-2xl px-10 " 
