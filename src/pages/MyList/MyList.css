@@ -1,0 +1,74 @@
+/* MyList.css */
+
+.table-container {
+    overflow-x: auto;
+    border: 2px solid #000;
+    border-radius: 10px;
+    background-color: #d1fae5;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1000px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #065f46;
+    color: #fff;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+tbody tr:hover {
+    background-color: #e5e7eb;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4b5563;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #6366f1;
+    color: #fff;
+}
+
+.btn-warning {
+    background-color: #fbbf24;
+    color: #000;
+}
+
+.btn-warning:hover {
+    background-color: #d97706;
+    color: #fff;
+}

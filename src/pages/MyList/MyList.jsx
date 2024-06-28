@@ -1,24 +1,30 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useTable } from "react-table";
+import "./MyList.css"; // Add custom CSS for styling
 
 const MyList = () => {
-    const { user} = useContext(AuthContext);
-    const [userspot, setUserSpot]= useState([])
-    useEffect(()=>{
-        fetch(`https://globeglimpse.vercel.app/addTousristSpot/${user.email}`)
-        .then(response => response.json())
-        .then(data => {
-             console.log(data);
-             setUserSpot(data)
-         })
-    },[])
-    const handleDelete =id =>{
+    const { user } = useContext(AuthContext);
+    const [userspot, setUserSpot] = useState([]);
 
+    useEffect(() => {
+        fetch(`https://globeglimpse.vercel.app/addTousristSpot/${user.email}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setUserSpot(data);
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
+    }, [user.email]); // Only re-run the effect if user.email changes
+
+    const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -27,78 +33,105 @@ const MyList = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              fetch(`https://globeglimpse.vercel.app/addTousristSpot/${id}`,{
-                method:'DELETE',
-        
-            }).then(res => res.json())
-            .then(data => {
-              if (data.deletedCount >0) {
-                Swal.fire({
-                  title: "Deleted!",
-                  text: "Your file has been deleted.",
-                  icon: "success"
+                fetch(`https://globeglimpse.vercel.app/addTousristSpot/${id}`, {
+                    method: 'DELETE',
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                        setUserSpot(prevState => prevState.filter(item => item._id !== id));
+                    } else {
+                        Swal.fire({
+                            title: "Failed to Delete!",
+                            text: "Could not delete the item.",
+                            icon: "error"
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error("Error deleting item:", error);
                 });
-              }
-             const remaining = userspot.filter(cof => cof._id !== id)
-             setUserSpot(remaining)
-                console.log(data );
-            })
-             
             }
-          });
-    }
-    
+        });
+    };
+
+    const data = useMemo(() => userspot, [userspot]);
+
+    const columns = useMemo(
+        () => [
+            { Header: "ID", accessor: (row, i) => i + 1 },
+            { Header: "Tourist", accessor: "Tourist" },
+            { Header: "Time", accessor: "TravelTime" },
+            { Header: "Country", accessor: "countryName" },
+            {
+                Header: "Update",
+                accessor: "update",
+                Cell: ({ row }) => (
+                    <Link to={`/updateTourist/${row.original._id}`}>
+                        <button className="btn btn-sm ml-2 bg-pink-600">
+                            <FaRegEdit />
+                        </button>
+                    </Link>
+                )
+            },
+            {
+                Header: "Delete",
+                accessor: "delete",
+                Cell: ({ row }) => (
+                    <button onClick={() => handleDelete(row.original._id)} className="btn btn-sm ml-2 btn-warning">
+                        <MdDeleteForever />
+                    </button>
+                )
+            }
+        ],
+        [handleDelete]
+    );
+
+    const {
+        getTableProps,
+        getTableBodyProps,
+        headerGroups,
+        rows,
+        prepareRow
+    } = useTable({ columns, data });
+
     return (
         <div className="">
-             <Helmet>
-        <title>My List</title>
-        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
-      </Helmet>
-        <div className="overflow-x-auto border md:w-4/5 mx-auto bg-green-100 rounded-xl border-black  ">
-		<table className="min-w-full text-xs">
-			<thead className="dark:bg-gray-300 bg-slate-600 mt-10">
-				<tr className="text-left text-white">
-                <th></th>
-					<th className="p-3">Tourist </th>
-					<th className="p-3">Time</th>
-					<th className="p-3">country</th>
-					<th className="p-3">Update</th>
-					<th className="p-3">Delete</th>
-					
-				</tr>
-			</thead>
-				{
-                    userspot.map((ld,i)=> <tbody key={ld._id}>
-                        <tr  className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
-                        <th>{i+1}</th>
-                            <td className="p-3">
-                                <p>{ld.Tourist}</p>
-                            </td>
-                            
-                            <td className="p-3">
-                                <p>{ld.TravelTime}</p>
-                                
-                            </td>
-                            <td className="p-3">
-                                <p>{ld.countryName}</p>
-                                
-                            </td>
-                            <td className="">
-                                <Link to={`/updateTourist/${ld._id}`}>
-                               <button className="btn btn-sm ml-2 bg-pink-600"><FaRegEdit /></button>
-                                </Link>
-                            </td>
-                            <td className="">
-                               <button onClick={()=>handleDelete(ld._id)} className="btn btn-sm ml-2 btn-warning"> <MdDeleteForever /></button>
-                            </td>
-                        </tr>
-                    </tbody> )
-                }
-			
-		</table>
-	</div>
+            <Helmet>
+                <title>My List</title>
+            </Helmet>
+            <div className="table-container">
+                <table {...getTableProps()}>
+                    <thead>
+                        {headerGroups.map(headerGroup => (
+                            <tr {...headerGroup.getHeaderGroupProps()}>
+                                {headerGroup.headers.map(column => (
+                                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                                ))}
+                            </tr>
+                        ))}
+                    </thead>
+                    <tbody {...getTableBodyProps()}>
+                        {rows.map(row => {
+                            prepareRow(row);
+                            return (
+                                <tr {...row.getRowProps()}>
+                                    {row.cells.map(cell => (
+                                        <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                    ))}
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

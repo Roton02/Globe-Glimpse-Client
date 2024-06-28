@@ -40,7 +40,7 @@ const AllTourist = () => {
       <div className="flex m-3">
       <div className=" ml-20 mx-auto  ">
         <details className="dropdown">
-          <summary className="m-1  btn btn-md border border-[#ff0000] light:text-black hover:bg-[#ff0000] hover:text-white transition dark:text-white">
+          <summary className="m-1  btn btn-md bg-black text-white border border-[#ff0000] light:text-black hover:bg-[#ff0000] hover:text-white transition dark:text-white">
             Sort By <FaArrowDown></FaArrowDown>
           </summary>
           <ul className="p-2 ml-12  space-y-2 bg-gray-200 shadow menu dropdown-content z-[1]  rounded-box w-52 py-5">
@@ -90,7 +90,7 @@ const AllTourist = () => {
               </div>
 
               <p>
-                {ld.short_description}{" "}
+                {ld.short_description.slice(0,70)}{" "}
                 <span className="text-orange-500 font-semibold"> More ...</span>
               </p>
            

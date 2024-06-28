@@ -1,209 +1,214 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import { Helmet } from "react-helmet-async";
-
+import Lottie from "lottie-react";
+import animationData from "../../assets/addpage.json";
 
 const AddTourist = () => {
   const { user } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-  const name = user.displayName
-  const email = user.email
-    const image = form.photo.value
-    const Tourist =form.Tourist.value;
+    const name = user.displayName;
+    const email = user.email;
+    const image = form.photo.value;
+    const Tourist = form.Tourist.value;
     const countryName = form.desh.value;
     const visitor = form.visit.value;
-    const averageCost= form.cost.value;
-    const TravelTime = form.TravelTime.value;
+    const averageCost = form.cost.value;
     const seasonality = form.season.value;
     const located = form.located.value;
     const short_description = form.short_description.value;
-    const newItem ={name,email,image,Tourist,visitor,countryName,averageCost,TravelTime,seasonality,located,short_description}
-    console.log(newItem);
-    fetch('https://globeglimpse.vercel.app/addTousristSpot',{
-      method:'POST',
-      body:JSON.stringify(newItem),
-      headers:{
-        'Content-Type':'application/json'
-      }
-    }).then(res => res.json())
-    .then(data => {
-      console.log(data);
-      if (data.acknowledged) {
-        Swal.fire({
-          title: "Wow Done!",
-          text: "you create a spot succesfully !",
-          icon: "success"
-        });
-        form.reset();
-      }
+    const newItem = {
+      name,
+      email,
+      image,
+      Tourist,
+      visitor,
+      countryName,
+      averageCost,
+      seasonality,
+      located,
+      short_description,
+    };
+
+    fetch("https://globeglimpse.vercel.app/addTousristSpot", {
+      method: "POST",
+      body: JSON.stringify(newItem),
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire({
+            title: "Spot Added Successfully!",
+            text: "You have successfully added a new tourist spot.",
+            icon: "success",
+          });
+          form.reset();
+        }
+      })
+      .catch((error) => {
+        console.error("Error adding spot:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to add spot. Please try again later.",
+          icon: "error",
+        });
+      });
   };
-  // ,image,countryName,visitor,averageCost,TravelTime,Tourist,seasonality,Location,short_description
 
   return (
-    <div className="md:w-2/3 mx-auto">
-      <Helmet>
-        <title>Add New</title>
-        {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
-      </Helmet>
-      
-        <div className="bg-gradient-to-r from-teal-800 to-blue-500 h-52 flex  justify-center  w-full rounded-t-xl">
-          <div>
-          <img className="h-52 w-full" src='https://i.ibb.co/SvDjR5d/download.png' alt="" />
+    <div className="min-h-screen  relative  bg-gradient-to-r from-[#a18cd1] to-[#fbc2eb]">
+      <Lottie
+        className="absolute inset-0 z-0"
+        animationData={animationData}
+        loop
+        autoplay
+      />
+      <div className=" relative z-10 ;">
+        <Helmet>
+          <title>Add New Tourist Spot</title>
+        </Helmet>
+        <header className="py-10 text-center">
+          <div className="container mx-auto">
+            <h1 className="text-4xl text-black font-bold">
+              Explore and Add Tourist Spots
+            </h1>
+            <p className="mt-4 text-black text-xl">
+              Discover the beauty of the world and share your favorite places.
+            </p>
           </div>
-            <div className="text-white font-bold my-auto">
-              <h1 className=" text-3xl"><span className="text-pink-950"> REGISTRATION</span> FORM</h1>
-              <p className="">Fill the form and add spots of your choice.</p>
+        </header>
+        <section className="mx-auto pt-10 px-4 md:px-0">
+          <form onSubmit={handleSubmit} className="p-8 md:px-20 lg:px-36 rounded-lg shadow-lg">
+            <h2 className="text-2xl font-bold text-black mb-6">
+              Add a New Tourist Spot
+            </h2>
+            <div className="w-full grid  grid-cols-1 md:grid-cols-2 md:gap-6">
+              <div className="col-span-2 md:col-span-1">
+                <label className="block text-gray-700 mb-1">
+                  Tourist Spot Name
+                </label>
+                
+                <input
+                  type="text"
+                  name="Tourist"
+                  placeholder="Enter Tourist Spot Name"
+                  className="mt-2 bg-black text-white  p-3 w-full border-b-2 focus:outline-none focus:border-purple-500"
+                  required
+                />
+              </div>
+              <div className="col-span-2 md:col-span-1">
+                <label className="block text-gray-700 mb-1">Photo URL</label>
+                <input
+                  type="text"
+                  name="photo"
+                  placeholder="Enter Photo URL"
+                  className="mt-2 p-3 bg-black text-white w-full border-b-2 focus:outline-none focus:border-purple-500"
+                  required
+                />
+              </div>
+              <div className="col-span-2 md:col-span-1">
+                <label className="block text-gray-700 mb-1">Country Name</label> 
+                <select
+                  name="desh"
+                  className="mt-2 bg-black text-white p-3 w-full border-b-2 focus:outline-none focus:border-purple-500"
+                  required
+                >
+                  <option>Bangladesh</option>
+                  <option>Thailand</option>
+                  <option>Indonesia</option>
+                  <option>Malaysia</option>
+                  <option>Vietnam</option>
+                  <option>Cambodia</option>
+                </select>
+              </div>
+              <div className="col-span-2 md:col-span-1">
+                <label className="block text-gray-700 mb-1">
+                  Total Visitors Per Year
+                </label>
+                <input
+                  type="number"
+                  name="visit"
+                  placeholder="Total Visitors Per Year"
+                  className="mt-2 bg-black text-white p-3 w-full border-b-2 focus:outline-none focus:border-purple-500"
+                  required
+                />
+              </div>
+              <div className="col-span-2 md:col-span-1">
+                <label className="block text-gray-700 mb-1">Average Cost</label> 
+                <input
+                  type="number"
+                  name="cost"
+                  placeholder="Enter Average Cost"
+                  className="mt-2 bg-black text-white p-3 w-full border-b-2 focus:outline-none focus:border-purple-500"
+                  required
+                />
+              </div>
+              <div className="col-span-2 md:col-span-1">
+                <label className="block text-gray-700 mb-1">Seasonality</label>
+                <select
+                  name="season"
+                  className="mt-2 bg-black text-white p-3 w-full border-b-2 focus:outline-none focus:border-purple-500"
+                  required
+                >
+                  <option>Summer</option>
+                  <option>Winter</option>
+                  <option>Rainy</option>
+                  <option>Autumn</option>
+                  <option>Monsoon</option>
+                  <option>Dry season</option>
+                </select>
+              </div>
+              
+              <div className="col-span-2">
+                <label className="block text-gray-700 mb-1">Location</label>
+                <input
+                  type="text"
+                  name="located"
+                  placeholder="Write Location"
+                  className="mt-2 bg-black p-3 text-white w-full border-b-2 focus:outline-none focus:border-purple-500"
+                  required
+                />
+              </div>
+              <div className="col-span-2">
+                <label className="block text-gray-700 mb-1">
+                  Short Description
+                </label>
+                <textarea
+                  name="short_description"
+                  placeholder="Write a short description about your spot"
+                  className="mt-2 bg-black text-white p-3 w-full border-b-2 focus:outline-none focus:border-purple-500"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
             </div>
-        </div>
-      <form className=" pt-10 space-y-2 pb-5 bg-gray-100 rounded-b-2xl px-10 " 
-      onSubmit={handleSubmit}>
-        
-        {/*  */}
-        <div className="md:flex gap-9">
-          <div className="md:w-1/2">
-            <label htmlFor="image">Tourist Spot Name:</label>
-            <br />
-            <input
-              placeholder="Enter Tourist Spot Name"
-              className="border border-black  p-2 rounded-md w-full"
-              type="text"
-              id="image"
-              name="Tourist"
-              required
-            />
-            <br />
-          </div>
-          <div className="md:w-1/2">
-            <label htmlFor="image">Photo URL:</label>
-            <br />
-            <input
-              placeholder="Enter Photo URL:"
-              className="border border-black  p-2 rounded-md w-full"
-              type="text"
-              id="image"
-              name="photo"
-              required
-            />
-            <br />
-          </div>
-        </div>
-        {/*  */}
-        <div className="md:flex gap-9">
-          <div className="md:w-1/2">
-            <label htmlFor="country_Name">Country Name:</label>
-            <br />
-            <select name="desh" required className=" border border-black p-2 rounded-md w-full">
-            
-              <option>Bangladesh</option>
-              <option>Thailand</option>
-              <option>Indonesia</option>
-              <option>Malaysia</option>
-              <option>Vietnam</option>
-              <option>Cambodia</option>
-            </select>
-          </div>
-
-          <div className="md:w-1/2">
-            <label htmlFor="location">Total Visitors Per Year:</label>
-            <br />
-            <input 
-              placeholder="Total Visitors Per Year"
-              className="border border-black  p-2 rounded-md w-full"
-              type="number"
-              id="location"
-              name="visit"
-              required
-            />
-            <br />
-          </div>
-        </div>
-
-        
-
-       <div className="flex md:flex-row flex-col justify-between gap-3">
-      <div className="">
-      <label htmlFor="average_cost">Average Cost:</label>
-        <br />
-        <input
-          placeholder="Enter Average Cost"
-          className="border border-black w-full  p-2 rounded-md "
-          type="number"
-          id="average_cost"
-          name="cost"
-          required
-        />
-        <br />
+            <div className="">
+              <button
+                type="submit"
+                className=" mt-4  rounded-lg   transition duration-300"
+              >
+                <a
+                  href="#_"
+                  className="relative inline-block mt-2 px-14 py-2 font-medium group"
+                >
+                  <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                  <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+                  <span className="relative text-black group-hover:text-white">
+                    Add Spot
+                  </span>
+                </a>
+              </button>
+            </div>
+          </form>
+        </section>
       </div>
-
-        <div>
-        <label htmlFor="seasonality">Seasonality:</label>
-        <br />
-      
-        <select name="season" required className=" border border-black p-2 rounded-md w-full">
-              <option>Summer</option>
-              <option>Winter</option>
-              <option>Rainy</option>
-              <option>Autumn</option>
-              <option>Monsoon</option>
-              <option>Dry season</option>
-            </select>
-        </div>
-
-        <div>
-        <label htmlFor="travel_time">Travel Time:</label>
-        <br />
-       
-        <select name="TravelTime"required  className=" border border-black p-2 rounded-md w-full">
-              
-              <option>1 Days</option>
-              <option>3 Days</option>
-              <option>7 Days</option>
-              <option>15 days</option>
-              <option>1 Month</option>
-              
-            </select>
-        </div>
-       </div>
-
-        <label htmlFor="totalVisitorsPerYear">Location:</label>
-        <br />
-        <input
-          placeholder="Write Location"
-          className="border border-black  p-2 rounded-md w-full"
-          type="text"
-          id="totalVisitorsPerYear"
-          name="located"
-          required
-        />
-        <br />
-        <label htmlFor="short_description">Short Description:</label>
-        <br />
-        <textarea
-          placeholder="Write a sort Description about Your Spot"
-          className="border p-2 w-full border-black  rounded-md"
-          id="short_description"
-          name="short_description"
-          rows="4"
-          required
-        />
-        <br />
-        <div className="flex justify-center  ">
-
-        <button
-              
-              className="rounded-md px-20 lg:py-2 m-1 overflow-hidden relative group cursor-pointer border p-1 font-medium border-black text-black hover:text-white"
-            >
-              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-black top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-              <span className="relative  text-black transition duration-300 group-hover:text-white ease">
-                Add
-              </span>
-            </button>
-        </div>
-      </form>
     </div>
   );
 };
