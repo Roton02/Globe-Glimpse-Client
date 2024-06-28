@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
+    "@lottiefiles/react-lottie-player": "^3.5.4",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "firebase": "^10.11.0",

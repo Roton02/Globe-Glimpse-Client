@@ -16,8 +16,10 @@ const Home = () => {
         {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
       </Helmet>
             <Banner></Banner>
-            <h1 className="text-4xl my-5 text-center underline font-bold">Tourists Spots </h1>
+            <h1 className="text-center font-bold text-2xl  mx-auto">Modern & Beautiful</h1>
+            <h5 className="text-4xl my-5 text-center  font-bold">Explore the World for Yourself </h5>
             <TouristSpot loaderData={loaderData}></TouristSpot>
+
             <h1 className="text-4xl mb-5 text-center underline font-bold">Countries </h1>
             <CountriesSection ></CountriesSection>
             <h1 className="text-4xl mb-5 text-center underline font-bold">Client Review </h1>

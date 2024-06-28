@@ -33,8 +33,8 @@ const AddTourist = () => {
       console.log(data);
       if (data.acknowledged) {
         Swal.fire({
-          title: "Good job!",
-          text: "You clicked the button!",
+          title: "Wow Done!",
+          text: "you create a spot succesfully !",
           icon: "success"
         });
         form.reset();
@@ -81,7 +81,7 @@ const AddTourist = () => {
             <label htmlFor="image">Photo URL:</label>
             <br />
             <input
-              placeholder="Enter Tourist Spot Name"
+              placeholder="Enter Photo URL:"
               className="border border-black  p-2 rounded-md w-full"
               type="text"
               id="image"
@@ -96,10 +96,8 @@ const AddTourist = () => {
           <div className="md:w-1/2">
             <label htmlFor="country_Name">Country Name:</label>
             <br />
-            <select name="desh" className=" border border-black p-2 rounded-md w-full">
-              <option disabled selected>
-                Pick your Country
-              </option>
+            <select name="desh" required className=" border border-black p-2 rounded-md w-full">
+            
               <option>Bangladesh</option>
               <option>Thailand</option>
               <option>Indonesia</option>
@@ -112,12 +110,13 @@ const AddTourist = () => {
           <div className="md:w-1/2">
             <label htmlFor="location">Total Visitors Per Year:</label>
             <br />
-            <input
+            <input 
               placeholder="Total Visitors Per Year"
               className="border border-black  p-2 rounded-md w-full"
               type="number"
               id="location"
               name="visit"
+              required
             />
             <br />
           </div>
@@ -135,6 +134,7 @@ const AddTourist = () => {
           type="number"
           id="average_cost"
           name="cost"
+          required
         />
         <br />
       </div>
@@ -143,10 +143,7 @@ const AddTourist = () => {
         <label htmlFor="seasonality">Seasonality:</label>
         <br />
       
-        <select name="season" className=" border border-black p-2 rounded-md w-full">
-              <option disabled selected>
-              Enter Seasonality
-              </option>
+        <select name="season" required className=" border border-black p-2 rounded-md w-full">
               <option>Summer</option>
               <option>Winter</option>
               <option>Rainy</option>
@@ -160,10 +157,8 @@ const AddTourist = () => {
         <label htmlFor="travel_time">Travel Time:</label>
         <br />
        
-        <select name="TravelTime" className=" border border-black p-2 rounded-md w-full">
-              <option disabled selected>
-              Enter Travel Time
-              </option>
+        <select name="TravelTime"required  className=" border border-black p-2 rounded-md w-full">
+              
               <option>1 Days</option>
               <option>3 Days</option>
               <option>7 Days</option>
@@ -182,16 +177,18 @@ const AddTourist = () => {
           type="text"
           id="totalVisitorsPerYear"
           name="located"
+          required
         />
         <br />
         <label htmlFor="short_description">Short Description:</label>
         <br />
         <textarea
-          placeholder="Enter Your Email"
+          placeholder="Write a sort Description about Your Spot"
           className="border p-2 w-full border-black  rounded-md"
           id="short_description"
           name="short_description"
           rows="4"
+          required
         />
         <br />
         <div className="flex justify-center  ">

@@ -12,7 +12,7 @@ const Navbar = () => {
     const locatTheme = localStorage.getItem("theme");
     // If no theme is found in localStorage, default to dark theme
     // return locatTheme === "dark" ? true : false;
-    return locatTheme === "light" ? true : false;
+    return locatTheme === "dark" ? false : true;
   });
 
   // Function to toggle theme
@@ -29,7 +29,7 @@ const Navbar = () => {
     // document.querySelector('html').setAttribute('data-theme', theme ? "dark" : "light");
     document
       .querySelector("html")
-      .setAttribute("data-theme", theme ? "light" : "dark");
+      .setAttribute("data-theme", theme ? "dark" : "light");
   }, [theme]); // Re-run effect when theme changes
 
   const { Logout, user } = useContext(AuthContext);
@@ -68,7 +68,7 @@ const Navbar = () => {
               to="/allTourist"
               className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
             >
-              All Tourists Spot
+              Destinations
             </NavLink>
 
             <NavLink
@@ -85,35 +85,32 @@ const Navbar = () => {
             </NavLink>
           </div>
         </div>
-        <Link
-          to="/"
-          className="btn  btn-ghost text-sm md:text-xl lg:text-3xl  font-bold animate__animated animate__swing animate__delay-0.5s"
-        >
-          <span className="text-pink-700">Globe</span> Glimpse
+        <Link to="/">
+          <h2 className="text-3xl text-[#ff0000] ">Globe Glimpse</h2>
         </Link>
       </div>
       <div className="navbar-center hidden space-x-2  lg:flex">
         <NavLink
           to="/"
-          className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
+          className=" px-2  font-bold   hover:text-[#ff0000] "
         >
           Home
         </NavLink>
         <NavLink
           to="/allTourist"
-          className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
+          className=" px-2 l font-bold  hover:text-[#ff0000]   "
         >
-          All Tourists Spot
+          Destinations
         </NavLink>
         <NavLink
           to="/addTourist"
-          className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
+          className="  px-2  font-bold hover:text-[#ff0000]   "
         >
           Add Tourists Spot
         </NavLink>
         <NavLink
           to="/myList"
-          className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
+          className=" px-2  font-bold hover:text-[#ff0000]  "
         >
           My List
         </NavLink>
@@ -157,61 +154,68 @@ const Navbar = () => {
           </svg>
         </label>
 
-        {user ? (
+        { user ? (
           <div className="flex items-center ">
-           <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button">
-          <div
-              tabIndex={0}
-              role="button"
-              className=" border rounded-full border-gray-300  avatar hover:tooltip tooltip-open"
-              data-tip={user ? user.displayName : "Invalid Name"}
-            >
-              <div className=" rounded-full w-9 md:w-12  ">
-                <img  alt="" src={user.photoURL} />
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className=" border rounded-full border-gray-300 z-[110]  avatar"
+                >
+                  <div className=" rounded-full w-9 md:w-12  ">
+                    <img alt="" src={user?.photoURL || ''} />
+                  </div>
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content hidden lg:flex  z-[100] menu p-2 gap-2 shadow bg-base-100 rounded-box w-80 "
+              >
+                <div className="flex justify-center">
+                <img className="rounded-full w-20 text-center" src={user?.photoURL || ''} alt="" />
+                </div>
+                <li className="mx-auto text-xl font-bold ">----- {user?.displayName}  -----</li>
+                <li>
+                  <NavLink
+                    to="/profile"
+                    className="btn btn-sm btn-ghost border-2  border-gray-300 hover:bg-black hover:text-white"
+                  >
+                    Profile
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashBoard"
+                    className="btn btn-sm btn-ghost border-2  border-gray-300 hover:bg-black hover:text-white"
+                  >
+                    DashBoard
+                  </NavLink>
+                </li>
+                
+              
+                <button
+                  onClick={Logout}
+
+                  className="btn btn-sm btn-ghost border-2  border-gray-300 hover:bg-black hover:text-white"
+                >
+                    Logout
+                 
+                </button>
+              </ul>
             </div>
           </div>
-          <ul
-            tabIndex={0}
-            className="dropdown-content  lg:hidden flex  z-[100] menu p-2 gap-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-            <button  onClick={Logout}
-          to="/profile"
-          className="btn btn-ghost border-2  border-gray-300 hover:bg-black hover:text-white"
-        >
-          Logout
-        </button>
-            </li>
-           
-          </ul>
-        </div>
-            <button
-              onClick={Logout}
-              className="rounded-md hidden md:inline-flex btn-sm md:btn-md lg:px-3.5 lg:py-2 m-1 overflow-hidden relative group cursor-pointer border-2 p-1 font-medium border-pink-700 text-pink-700 hover:text-white"
-            >
-              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-pink-700 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-              <span className="relative  text-pink-700 transition duration-300 group-hover:text-white ease">
-                Logout
-              </span>
-            </button>
-          </div>
         ) : (
-          <div>
-            <NavLink
-              to="/login"
-              className="btn btn-sm md:btn-md btn-ghost mr-2 border-2 border-gray-300 hover:bg-black hover:text-white "
-            >
+          <Link
+           
+            to="/login"
+            className="rounded-md btn-sm  m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#ff0000] text-[#ff0000] hover:text-white"
+          >
+            <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#ff0000] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+            <span className="relative text-[#ff0000] transition duration-300 group-hover:text-white ease">
               Login
-            </NavLink>
-            <NavLink
-              to="/register"
-              className="btn hidden md:inline-flex  btn-md btn-ghost  border-2 border-gray-300 hover:bg-black hover:text-white "
-            >
-              Register
-            </NavLink>
-          </div>
+            </span>
+          </Link>
         )}
       </div>
     </nav>

@@ -46,7 +46,7 @@ const Register = () => {
     signUp(email, password)
       .then((result) => {
         console.log(result.user);
-        toast.success('Create account succesfully')
+        toast.success('Register succesfully')
         UpdateUser(name, photoLnk)
         .then(result =>{
           console.log(result);
@@ -67,7 +67,7 @@ const Register = () => {
     googleSignIn()
       .then((result) => {
         console.log(result.user);
-        toast.success('Create account  succesfully by Google ')
+        toast.success('Register your email')
           navigate( "/");
       })
       .catch((error) => {
@@ -78,7 +78,7 @@ const Register = () => {
     githubSignIn()
       .then((result) => {
         console.log(result.user);
-        toast.success('Create account  succesfully by Github ')
+        toast.success('Register your email')
           navigate( "/");
       })
       .catch((error) => {

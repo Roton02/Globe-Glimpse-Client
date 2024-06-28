@@ -2,107 +2,110 @@ import { useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { Helmet } from "react-helmet-async";
 import { FaArrowDown } from "react-icons/fa";
-import { LuCircleDollarSign } from "react-icons/lu";
+import { IoLocationOutline } from "react-icons/io5";
 import { Link, useLoaderData } from "react-router-dom";
-
+import Hero from "../../Shared/Banner/Hero";
 
 const AllTourist = () => {
   const loaderData = useLoaderData();
-  const [data , setData]= useState(loaderData)
-  
+  const [data, setData] = useState(loaderData);
+  console.log(data);
+
   // console.log(loaderData);
-  const sort = cost =>{
+  const sort = (cost) => {
     // console.log(cost);
-    if (cost == 'Assending') {
-      
-      const remainingAssending = [...loaderData].sort((a,b)=>(a.averageCost - b.averageCost))
-      setData(remainingAssending)
+    if (cost == "Assending") {
+      const remainingAssending = [...loaderData].sort(
+        (a, b) => a.averageCost - b.averageCost
+      );
+      setData(remainingAssending);
     }
-    if (cost == 'Dessending') {
-      const remainingDessending = [...loaderData].sort((a,b)=>(b.averageCost - a.averageCost))
-      setData( remainingDessending)
+    if (cost == "Dessending") {
+      const remainingDessending = [...loaderData].sort(
+        (a, b) => b.averageCost - a.averageCost
+      );
+      setData(remainingDessending);
     }
-  }
+  };
   return (
     <div>
-     <Helmet>
+      <div>
+      <Hero heading={'Destinations List'} subHeading={'Modern & Beautiful WordPress Theme for all Kinds of Travel and Tourism Busines.'}></Hero>
+      </div>
+      <Helmet>
         <title>All Tourist</title>
         {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
       </Helmet>
-      <div className="bg-gradient-to-r from-gray-100 from-10%  via-30% to-[#F9F3F9] to-90% dark:bg-gradient-to-r dark:from-[#f2f2d8] dark:from-10% dark:via-[#FCE7DC] dark:via-30% dark:to-[#fae1d4] gadgetContainer">
-        <div className="flex flex-col gap-4 lg:flex-row justify-between items-center py-4">
-          <div className="flex pl-10 gap-2">
-            <span className="text-3xl text-[#FF497C]">
-              <i className="bx bxs-envelope"></i>
-            </span>
-            <Fade>
-            <p className="font-semibold text-3xl lg:text-2xl">Send Newsletter
-            </p>
-            </Fade>
-              
-          </div>
-          <div className="flex gap-2 md:flex-row flex-col justify-center items-center">
-            <p className="font-medium text-lg md:w-1/2 md:mr-5 px-5 w-full text-black/60">
-              Sign-up for our newsletter to get up-to-date from us
-            </p>
-            <div className="flex gap-2 shrink">
-              <input
-                placeholder="Enter email"
-                type="text"
-                className="px-2 py-1 border rounded focus:outline-[#FF497C]"
-              />
-              <button className="px-3 py-2 bg-green-600 hover:bg-[#ab3154] text-sm text-white font-semibold rounded">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-end m-2 mr-20 mx-auto  ">
+      
+      <div className="flex m-3">
+      <div className=" ml-20 mx-auto  ">
         <details className="dropdown">
-          <summary className="m-1  btn btn-sm border border-green-600 light:text-black hover:bg-green-600 hover:text-white transition dark:text-white">
+          <summary className="m-1  btn btn-md border border-[#ff0000] light:text-black hover:bg-[#ff0000] hover:text-white transition dark:text-white">
             Sort By <FaArrowDown></FaArrowDown>
           </summary>
-          <ul className="p-2 space-y-2 bg-gray-200 shadow menu dropdown-content z-[1]  rounded-box w-28">
-            <li onClick={()=>sort('Assending')} className="hover:bg-black border border-black hover:text-white rounded-lg">
-              <button>A-Z</button>
+          <ul className="p-2 ml-12  space-y-2 bg-gray-200 shadow menu dropdown-content z-[1]  rounded-box w-52 py-5">
+            <li 
+              onClick={() => sort("Assending")}
+              className="hover:bg-black btn btn-sm border mx-auto  border-black hover:text-white rounded-lg"
+            >
+              <button>Cost Low to High</button>
             </li>
-            <li onClick={()=>sort('Dessending')}  className="hover:bg-black border border-black hover:text-white rounded-lg">
-              <button>Z-A</button>
+            <li
+              onClick={() => sort("Dessending")}
+              className="hover:bg-black border btn btn-sm  mx-auto  border-black hover:text-white rounded-lg"
+            >
+              <button>Cost High to Low</button>
             </li>
           </ul>
         </details>
       </div>
+      <div>
+        <h2 className="text-5xl font-bold mr-20"> All Tourist Spot</h2>
+      </div>
+      </div>
       <div className="grid px-4 md:px-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {data.map((ld) => (
-          <div key={ld._id} className=" card shadow-xl">
-            <figure className=" ">
-              <img src={ld.image} alt="Shoes" className="h-full w-full" />
-            </figure>
-            <div className="">
-              <h1 className="text-2xl font-semibold ml-4 my-1">
-                {ld.Tourist}{" "}
-              </h1>
-             
-                <div className="flex justify-between px-4">
-                  <p>TravelTime : {ld.TravelTime}</p>
-                  <p>season :{ld.seasonality}</p>
-                 
-                </div>
-                <div className="flex justify-between px-4">
-                  <p className="flex items-center">
-                    <span className="mr-2">Cost :</span> {ld.averageCost}{" "}
-                    <LuCircleDollarSign />{" "}
-                  </p>
-                  <p> Visit per Year : {ld.visitor} </p>
-                </div>
-              
-              <div className=" p-5">
+          <div key={ld._id} className="card bg-base-100 shadow-xl">
+            <div className="relative p-5">
+              <figure>
+                <img
+                  className="w-full hover:scale-105 hover:delay-75 h-64 object-cover"
+                  src={ld.image}
+                />
+              </figure>
+              <p className="card-lavel bg-[#ff0000] flex items-center gap-2 bg-red absolute py-3 px-7 -bottom-0 left-14 text-white">
+                <IoLocationOutline size={20} />
+                <span>{ld.countryName}</span>
+              </p>
+            </div>
+
+            <div className="p-6">
+              <div className="flex justify-between items-center gap-2">
+                <h2 className="font-semibold text-3xl md:text-4xl mt-3">
+                  {ld.Tourist}
+                </h2>
+                <p className="font-semibold text-red text-2xl md:text-4xl">
+                  ${ld?.averageCost}
+                </p>
+              </div>
+
+              <p>
+                {ld.short_description}{" "}
+                <span className="text-orange-500 font-semibold"> More ...</span>
+              </p>
+           
+              <div className="pt-1">
                 <Link to={`/details/${ld._id}`}>
-                  <button className="btn w-full  btn-primary ">
-                    {" "}
-                    View Details
-                  </button>
+                  <a
+                    href="#_"
+                    className="relative inline-block mt-2 px-4 py-2 font-medium group"
+                  >
+                    <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-[#ff0000] group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                    <span className="absolute inset-0 w-full h-full bg-white border-2 border-[#ff0000] group-hover:bg-[#ff0000]"></span>
+                    <span className="relative text-[#ff0000] group-hover:text-white">
+                      View Details
+                    </span>
+                  </a>
                 </Link>
               </div>
             </div>
