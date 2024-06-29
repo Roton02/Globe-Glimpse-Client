@@ -56,7 +56,7 @@ const MyList = () => {
       <div className="bg-green-100  border border-black">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-slate-200 text-white">
-            <tr className="text-black">
+            <tr className="text-black ">
               <th className="px-6 py-3"></th>
               <th className="px-6 py-3">Tourist</th>
               <th className="px-6 py-3">Season</th>
@@ -65,20 +65,20 @@ const MyList = () => {
               <th className="px-6 py-3">Delete</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white divide-y  divide-gray-200">
             {userspot.map((spot, index) => (
-              <tr key={spot._id} className="text-left">
-                <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{spot.Tourist}</td>
-                <td className="px-6 py-4 whitespace-nowrap">
+              <tr key={spot._id} className="text-center">
+                <td className="px-6 py-4 whitespace-nowrap text-black">{index + 1}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-black">{spot.Tourist}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-black">
                   {spot.seasonality}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
+                <td className="px-6 py-4 whitespace-nowrap text-black">
                   {spot.countryName}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
+                <td className="px-6 py-4 whitespace-nowrap text-black">
                   <Link to={`/updateTourist/${spot._id}`}>
-                    <button className="btn bg-pink-600 text-white p-2 rounded-md hover:bg-pink-700">
+                    <button className="btn bg-pink-600 text-white p-2 px-4 rounded-md hover:bg-pink-700">
                       <FaRegEdit />
                     </button>
                   </Link>
@@ -86,7 +86,7 @@ const MyList = () => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <button
                     onClick={() => handleDelete(spot._id)}
-                    className="btn bg-red-600 text-white p-2 rounded-md hover:bg-red-700"
+                    className="btn bg-red-600 text-white p-2 px-4 rounded-md hover:bg-red-700"
                   >
                     <MdDeleteForever />
                   </button>
