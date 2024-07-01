@@ -26,10 +26,8 @@ const Home = () => {
            <div className="bg-gray-100 py-10 rounded-xl my-5">
            <ClientReview></ClientReview>
            </div>
-           <h1 className="text-4xl mb-5 text-center underline font-bold">Contract </h1>
-           <div id="/contract" className="bg-slate-100 rounded-xl">
-           <Contract></Contract>
-           </div>
+          
+          
         </div>
     );
 };

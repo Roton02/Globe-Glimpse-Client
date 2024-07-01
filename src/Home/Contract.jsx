@@ -1,9 +1,6 @@
 const Contract = () => {
   return (
-    <section
-      className="min-h-screen bg-cover bg-[url('https://i.ibb.co/2kWxd2V/contract.jpg')]  bg-opacity-50 "
-     
-    >
+    <section className="min-h-screen w-screen bg-cover bg-[url('https://i.ibb.co/2kWxd2V/contract.jpg')]  bg-opacity-50 ">
       <div className="flex flex-col min-h-screen bg-black/60">
         <div className="container flex flex-col flex-1 px-6 py-12 mx-auto">
           <div className="flex-1 lg:flex lg:items-center lg:-mx-6">
@@ -13,7 +10,8 @@ const Contract = () => {
               </h1>
 
               <p className="max-w-xl mt-6">
-                we Provide best travel package in save money . Enjoy Your trip . If  Any Consern or Quries  give us and contract us
+                we Provide best travel package in save money . Enjoy Your trip .
+                If Any Consern or Quries give us and contract us
               </p>
 
               <button className="px-8 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-50">
@@ -102,11 +100,9 @@ const Contract = () => {
 
             <div className="mt-8 lg:w-1/3 text-white lg:mx-6">
               <div className="w-full px-8  mx-auto overflow-hidden bg-gray-400 bg-opacity-20 shadow-2xl rounded-xl dark:bg-gray-900 lg:max-w-xl">
-                <h1 className="text-xl font-medium text-gray-700 dark:text-gray-200">
+                <h1 className="text-xl font-medium text-white dark:text-gray-200">
                   Contact form
                 </h1>
-
-               
 
                 <form className="py-6">
                   <div className="flex-1">
