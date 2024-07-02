@@ -35,7 +35,7 @@ git clone https://github.com/Roton02/Globe-Glimpse-Client.git
 
 2. Navigate to the project directory:
    ```
-   cd ROAM
+   cd Globe-Glimpse-Client
    ```
 3. Install dependencies:
    ```
