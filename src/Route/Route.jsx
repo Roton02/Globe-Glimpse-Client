@@ -14,6 +14,7 @@ import UpdateTourist from "../pages/MyList/UpdateTourist";
 import DetailsPage from "../pages/MyList/DetailsPage";
 import ReleteCountryData from "../Home/ReleteCountryData";
 import Profile from "../pages/Profile/Profile";
+import UpdateProfile from "../pages/UpdateProfile/UpdateProfile";
 
 
   const router = createBrowserRouter([
@@ -69,6 +70,10 @@ import Profile from "../pages/Profile/Profile";
         {
           path:'/profile',
           element:<Profile></Profile>
+        },
+        {
+          path:'/updateProfile',
+          element:<UpdateProfile></UpdateProfile>
         }
        
       ]

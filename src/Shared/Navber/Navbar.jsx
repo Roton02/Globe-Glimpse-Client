@@ -213,14 +213,7 @@ const Navbar = () => {
                       Profile
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink
-                      to="/dashBoard"
-                      className="btn btn-sm btn-ghost border-2  border-gray-300 hover:bg-black hover:text-white"
-                    >
-                      DashBoard
-                    </NavLink>
-                  </li>
+                  
 
                   <button
                     onClick={Logout}
