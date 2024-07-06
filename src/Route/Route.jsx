@@ -13,6 +13,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UpdateTourist from "../pages/MyList/UpdateTourist";
 import DetailsPage from "../pages/MyList/DetailsPage";
 import ReleteCountryData from "../Home/ReleteCountryData";
+import Profile from "../pages/Profile/Profile";
 
 
   const router = createBrowserRouter([
@@ -64,6 +65,10 @@ import ReleteCountryData from "../Home/ReleteCountryData";
           path:'/ReleteCountryData/:countryName',
           element: <ReleteCountryData></ReleteCountryData>,
           loader:({params})=>fetch(`https://globeglimpse.vercel.app/ReleteCountryData/${params.countryName}`)
+        },
+        {
+          path:'/profile',
+          element:<Profile></Profile>
         }
        
       ]
