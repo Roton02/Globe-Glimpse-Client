@@ -1,4 +1,4 @@
-*/My Category Name is: 'Southeast Asia'
+
 */WebSite Name :Globe Glimpse
 */Live Site url: 'https://wondrous-daffodil-69d353.netlify.app/'
 
