@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { imageUpload } from "../../../api/utils";
 import { useContext } from "react";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 
@@ -13,16 +12,7 @@ const UpdateProfile = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     const name = e.target.name.value;
-    let photo = e.target.elements.photo.files[0];
-    try {
-      const imgData = await imageUpload(photo);
-      // setImageURL(imgData);
-      console.log(imgData);
-      photo = imgData
-  } catch (err) {
-      console.log(err);
-  }
-    // const email = e.target.email.value;
+    const photo = e.target.photo.value;
     // console.log(name,photo,email);
     UpdateUser(name, photo)
       .then((res) => {
@@ -313,7 +303,7 @@ const UpdateProfile = () => {
               <input
                 
                 id="username"
-                type="file"
+                type="text"
                 name="photo"
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md"
               />
@@ -321,7 +311,7 @@ const UpdateProfile = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text ">Photo URL</span>
+                    <span className="label-text ">Email</span>
                   </label>
                   <input
                     value={user?.email}
