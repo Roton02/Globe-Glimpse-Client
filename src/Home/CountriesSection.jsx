@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CountriesSection = () => {
   const [coutryData, setCountryData] = useState([]);
   useEffect(() => {
-    fetch("https://globeglimpse.vercel.app/contries")
+    fetch("http://localhost:5000/contries")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

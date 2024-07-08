@@ -1,151 +1,116 @@
-import Marquee from "react-fast-marquee";
+import { useEffect, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+
+// import required modules
+import { FreeMode, Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
+import arrowImage from "../assets/Arrow.png";
 
 const ClientReview = () => {
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/ClientReview")
+      .then((res) => res.json())
+      .then((res) => {
+        setReviews(res);
+      });
+  }, []);
+
   return (
-    <div>
-        
-      <Marquee pauseOnHover={true}>
-        <div className="container flex flex-col w-full max-w-lg p-6  divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800 mx-5">
-          <div className="flex justify-between p-4">
-            <div className="flex space-x-4">
+    <div className="border py-16">
+      <div className="text-center mb-8">
+        <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-200">
+          Client Reviews
+        </h2>
+        <p className="text-gray-600 dark:text-gray-400 mt-2">
+          Below are some feedbacks from our valued clients.
+        </p>
+      </div>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={20}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
+        freeMode={true}
+        pagination={{
+          clickable: true,
+          dynamicBullets: true,
+        }}
+        modules={[FreeMode, Pagination]}
+        className="mySwiper mt-8" // Added Tailwind class for margin-top
+      >
+        {reviews.slice(0, 4).map((i) => (
+          <SwiperSlide key={i.client_name}>
+            <div className="w-full max-w-sm px-4 py-3 bg-white rounded-md shadow-md dark:bg-gray-800">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-light text-gray-800 dark:text-gray-400">
+                  {i.reaction}
+                </span>
+                <span className="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900">
+                  {i.ratings} ⭐
+                </span>
+              </div>
+
               <div>
+                <h1 className="mt-2 text-lg font-semibold text-gray-800 dark:text-white">
+                  {i.title}
+                </h1>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                  {i.description.slice(0, 75)}{" "}
+                  <span className="ml-3 text-blue-400">
+                    {" "}
+                    <Link to='/AddReviews'>More...</Link>{" "}
+                  </span>
+                </p>
+              </div>
+
+              <div className="flex gap-5 items-end">
+              <div className="w-16 h-16  mt-4">
                 <img
-                  src="https://i.ibb.co/3r23bm0/mark.jpg"
-                  alt=""
-                  className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                  className="w-16 h-16 rounded-full"
+                  src={i.image}
+                  alt={i.client_name}
                 />
               </div>
-              <div>
-                <h4 className="font-bold">Mark wood</h4>
-                <span className="text-xs dark:text-gray-600">10 days ago</span>
+              <h2 className="text-2xl">{i.client_name}</h2>
               </div>
             </div>
-            <div className="flex items-center space-x-2 dark:text-yellow-700">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                className="w-5 h-5 fill-current"
-              >
-                <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
-              </svg>
-              <span className="text-xl font-bold">4.2</span>
-            </div>
-          </div>
-          <div className="p-4 space-y-2 text-sm dark:text-gray-600">
-            <p>
-            I stumbled upon this tourist website while planning a last-minute getaway, and it was a game-changer. 
-            </p>
-            <p>
-            Not only did they have great deals on accommodations, but their curated lists of activities and attractions saved me hours of research. Thanks to them, I had an unforgettable vacation!
-            </p>
-          </div>
-        </div>
-        <div className="  container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800">
-          <div className="flex justify-between p-4">
-            <div className="flex space-x-4">
-              <div>
-                <img
-                  src="https://i.ibb.co/HtsQ7Rw/women.jpg"
-                  alt=""
-                  className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
-                />
-              </div>
-              <div>
-                <h4 className="font-bold">Leroy Jenkins</h4>
-                <span className="text-xs dark:text-gray-600">4 days ago</span>
+          </SwiperSlide>
+        ))}
+        <SwiperSlide>
+          <Link to='/AddReviews'>
+            <div className="w-full max-w-sm px-4 py-3  rounded-md shadow-md bg-gray-100">
+              <div className="flex border border-dotted border-red-500 flex-col justify-center items-center my-auto">
+                <div className="w-36">
+                  {" "}
+                  <img className="w-28 h-10" src={arrowImage} alt="" />
+                </div>
+                <h1 className="text-4xl  flex items-center justify-center">
+                  See all Client Review{" "}
+                </h1>
               </div>
             </div>
-            <div className="flex items-center space-x-2 dark:text-yellow-700">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                className="w-5 h-5 fill-current"
-              >
-                <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
-              </svg>
-              <span className="text-xl font-bold">5</span>
-            </div>
-          </div>
-          <div className="p-4 space-y-2 text-sm dark:text-gray-600">
-            <p>
-            Iam not usually one to leave reviews, but I had such an amazing experience with this tourist website that I had to share. 
-            </p>
-            <p>
-            From the moment I landed on their page, I was impressed by the breadth of options available. Whether you are a budget traveler or looking for luxury, they have something for everyone. Thanks for making my vacation stress-free!
-            </p>
-          </div>
-        </div>
-        <div className=" mx-5 container flex flex-col w-full max-w-lg p-6  divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800">
-          <div className="flex justify-between p-4">
-            <div className="flex space-x-4">
-              <div>
-                <img
-                  src="https://i.ibb.co/d6vyDNh/m2.jpg"
-                  alt=""
-                  className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
-                />
-              </div>
-              <div>
-                <h4 className="font-bold">Lorens Bisnoy</h4>
-                <span className="text-xs dark:text-gray-600">7 days ago</span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-2 dark:text-yellow-700">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                className="w-5 h-5 fill-current"
-              >
-                <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
-              </svg>
-              <span className="text-xl font-bold">4.5</span>
-            </div>
-          </div>
-          <div className="p-4 space-y-2 text-sm dark:text-gray-600">
-            <p>
-            Wow! What an incredible experience! This tourist website helped me plan my dream vacation seamlessly. 
-            </p>
-            <p>
-            From booking accommodations to finding hidden gems off the beaten path, their recommendations were spot-on. I cant wait to use this site for my next adventure!
-            </p>
-          </div>
-        </div>
-        <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800">
-          <div className="flex justify-between p-4">
-            <div className="flex space-x-4">
-              <div>
-                <img
-                  src="https://i.ibb.co/sysTXX2/m1.webp"
-                  alt=""
-                  className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
-                />
-              </div>
-              <div>
-                <h4 className="font-bold">Alex</h4>
-                <span className="text-xs dark:text-gray-600">2 days ago</span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-2 dark:text-yellow-700">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                className="w-5 h-5 fill-current"
-              >
-                <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
-              </svg>
-              <span className="text-xl font-bold">4.7</span>
-            </div>
-          </div>
-          <div className="p-4 space-y-2 text-sm dark:text-gray-600">
-            <p>
-            As a frequent traveler, I will ve used many tourist websites, but none compare to this one. 
-            </p>
-            <p>
-            The user-friendly interface made it a breeze to navigate, and the wealth of information provided helped me discover new destinations I never would have found otherwise. 10/10 would recommend!
-            </p>
-          </div>
-        </div>
-      </Marquee>
+          </Link>
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 };

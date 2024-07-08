@@ -15,6 +15,7 @@ import DetailsPage from "../pages/MyList/DetailsPage";
 import ReleteCountryData from "../Home/ReleteCountryData";
 import Profile from "../pages/Profile/Profile";
 import UpdateProfile from "../pages/UpdateProfile/UpdateProfile";
+import AddReviews from "../pages/AddReviews/AddReviews";
 
 
   const router = createBrowserRouter([
@@ -26,7 +27,7 @@ import UpdateProfile from "../pages/UpdateProfile/UpdateProfile";
         {
           path: '/',
           element: <Home></Home>,
-          loader:()=>fetch('https://globeglimpse.vercel.app/addTousristSpot')
+          loader:()=>fetch('http://localhost:5000/addTousristSpot')
         },
         
         {
@@ -40,7 +41,7 @@ import UpdateProfile from "../pages/UpdateProfile/UpdateProfile";
         {
           path:'/allTourist',
           element:<AllTourist></AllTourist>,
-          loader:()=>fetch('https://globeglimpse.vercel.app/addTousristSpot')
+          loader:()=>fetch('http://localhost:5000/addTousristSpot')
         },
         {
           path:'/myList',
@@ -53,19 +54,19 @@ import UpdateProfile from "../pages/UpdateProfile/UpdateProfile";
         {
           path:'/updateTourist/:id',
           element: <PrivateRoute><UpdateTourist></UpdateTourist></PrivateRoute>,
-          loader:({params})=> fetch(`https://globeglimpse.vercel.app/updateTourist/${params.id}`)
+          loader:({params})=> fetch(`http://localhost:5000/updateTourist/${params.id}`)
         },
         {
           path:'/details/:id',
           element: <PrivateRoute>
               <DetailsPage></DetailsPage>
           </PrivateRoute> ,
-          loader:({params})=> fetch(`https://globeglimpse.vercel.app/details/${params.id}`)
+          loader:({params})=> fetch(`http://localhost:5000/details/${params.id}`)
         },
         {
           path:'/ReleteCountryData/:countryName',
           element: <ReleteCountryData></ReleteCountryData>,
-          loader:({params})=>fetch(`https://globeglimpse.vercel.app/ReleteCountryData/${params.countryName}`)
+          loader:({params})=>fetch(`http://localhost:5000/ReleteCountryData/${params.countryName}`)
         },
         {
           path:'/profile',
@@ -74,6 +75,10 @@ import UpdateProfile from "../pages/UpdateProfile/UpdateProfile";
         {
           path:'/updateProfile',
           element:<UpdateProfile></UpdateProfile>
+        },
+        {
+          path:'/addReviews',
+          element:<AddReviews></AddReviews>
         }
        
       ]

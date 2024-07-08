@@ -48,7 +48,7 @@ const UpdateTourist = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://globeglimpse.vercel.app/updateTourist/${loaderData._id}`,
+          `http://localhost:5000/updateTourist/${loaderData._id}`,
           {
             method: "PATCH",
             body: JSON.stringify(newItem),

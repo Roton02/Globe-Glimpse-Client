@@ -1,48 +1,153 @@
-
-import { useState } from 'react';
-import { Typewriter } from 'react-simple-typewriter';
-  const Carosel = () => {
-  const [currentSlider, setCurrentSlider] = useState(0);
-  const sliders = [{img:' https://i.ibb.co/yWP1rr6/s20.jpg', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}, {img: 'https://i.ibb.co/y6bsNg6/s5.jpg', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}, {img: ' https://i.ibb.co/zXtScGv/s222222.jpg ', title: "The Growth of Tourism", des: "It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country "}];
-  const prevSlider = () => setCurrentSlider((currentSlider) => currentSlider === 0 ? sliders.length - 1 : currentSlider - 1);
-  const nextSlider = () => setCurrentSlider((currentSlider) => currentSlider === sliders.length - 1 ? 0 : currentSlider + 1);
-  const isSmallScreen = window.innerWidth <= 768;
-  return (
-    <div className="w-full  h-[550px] md:h-[650px]  rounded-2xl flex flex-col xl:flex-row items-center justify-center gap-5 lg:gap-10 relative bg-cover before:absolute  before:inset-0 transform duration-1000 ease-linear  overflow-hidden"
-    style={{ backgroundImage: `url(${currentSlider === 0 ? sliders[sliders.length - 1].img : sliders[currentSlider - 1].img})`}}>
-    {/* arrow */}
-    <div className="absolute bottom-1/4 flex gap-3  px-5">
-        {/* arrow left */}
-        <button onClick={prevSlider} className="flex justify-center items-center  rounded-full w-6 h-6 md:w-8 md:h-8">
-            <svg viewBox="0 0 1024 1024" className="w-4 h-4 md:w-6 md:h-6 icon" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="white" d="M685.248 104.704a64 64 0 010 90.496L368.448 512l316.8 316.8a64 64 0 01-90.496 90.496L232.704 557.248a64 64 0 010-90.496l362.048-362.048a64 64 0 0190.496 0z"></path></g></svg>
-        </button>
-        {/* arrow right */}
-        <button onClick={nextSlider} className="flex justify-center items-center  rounded-full w-6 h-6 md:w-8 md:h-8">
-            <svg viewBox="0 0 1024 1024" className="w-4 h-4 md:w-6 md:h-6 icon" xmlns="http://www.w3.org/2000/svg" fill="#000000" transform="rotate(180)"><g strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="white" d="M685.248 104.704a64 64 0 010 90.496L368.448 512l316.8 316.8a64 64 0 01-90.496 90.496L232.704 557.248a64 64 0 010-90.496l362.048-362.048a64 64 0 0190.496 0z"></path></g></svg>
-        </button>
-    </div>
-    {/* text container here */}
-    <div className="w-1/2 hidden md:flex flex-col px-4 ml-16 left-0 absolute drop-shadow-lg text-white rounded-lg">
-        <h1 data-aos="fade-right" data-aos-duration='2000' className="text-3xl lg:text-5xl mb-3 font-bold">{sliders[currentSlider].title}</h1>
-        <p className="  sm:text-sm md:text-base text-xl lg:text-2xl">
-            <Typewriter loop={10} cursor={true} cursorStyle={'_'} words={['It also gives the opportunity for people to understand the culture, civilization, and religious aspects of a country ','Coxs Bazar, The Sundarbans, Srimangal, Lalbagh Fort, Rangamati, Bandarban, Saint Martin, Paharpur, Kuakata, Bagerhat, Sonargaon, Comilla, Bogra, Gaur, Barisal, Puthia, Ahsan Manzil Museum, Bangladesh National Parliament and many more','Stay in our opulent villas with private pools, lush gardens, and dedicated butler service. Our white sand beach invites guests to bask in Balis tropical sunshine. On-Site Activities']}></Typewriter></p>
-    </div>
-    {/* slider container */}
-    <div className="w-1/2 ml-auto overflow-hidden  absolute -right-5 lg:-right-16 z-20 px-4 py-10">
-        <div className="ease-linear duration-300 flex gap-4 items-center"
-            style={{ transform: `translateX(-${currentSlider * (isSmallScreen ? 98 : 200)}px)`}}>
-            {/* sliders */}
-            {sliders.map((slide, inx) => (
-                <img key={inx} src={slide.img}
-                    className={`h-[150px] md:h-[180px]  lg:h-[280px] min-w-[120px] md:min-w-[180] lg:min-w-[220px] ${
-                        currentSlider - 1 === inx ? 'scale-0' : 'scale-100 delay-500'
-                    } drop-shadow-lg shadow-lg shadow-black bg-black/50 duration-300 rounded-lg z-20`}
-                    alt={slide.title}/>
-            ))}
+<div className="container flex flex-col w-full max-w-lg p-6  divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800 mx-5">
+          <div className="flex justify-between p-4">
+            <div className="flex space-x-4">
+              <div>
+                <img
+                  src="https://i.ibb.co/3r23bm0/mark.jpg"
+                  alt=""
+                  className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                />
+              </div>
+              <div>
+                <h4 className="font-bold">Mark wood</h4>
+                <span className="text-xs dark:text-gray-600">10 days ago</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-2 dark:text-yellow-700">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className="w-5 h-5 fill-current"
+              >
+                <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
+              </svg>
+              <span className="text-xl font-bold">4.2</span>
+            </div>
+          </div>
+          <div className="p-4 space-y-2 text-sm dark:text-gray-600">
+            <p>
+              I stumbled upon this tourist website while planning a last-minute
+              getaway, and it was a game-changer.
+            </p>
+            <p>
+              Not only did they have great deals on accommodations, but their
+              curated lists of activities and attractions saved me hours of
+              research. Thanks to them, I had an unforgettable vacation!
+            </p>
+          </div>
         </div>
-    </div>
-</div>
-  );
-};
-
-export default Carosel;
+        <div className="  container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800">
+          <div className="flex justify-between p-4">
+            <div className="flex space-x-4">
+              <div>
+                <img
+                  src="https://i.ibb.co/HtsQ7Rw/women.jpg"
+                  alt=""
+                  className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                />
+              </div>
+              <div>
+                <h4 className="font-bold">Leroy Jenkins</h4>
+                <span className="text-xs dark:text-gray-600">4 days ago</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-2 dark:text-yellow-700">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className="w-5 h-5 fill-current"
+              >
+                <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
+              </svg>
+              <span className="text-xl font-bold">5</span>
+            </div>
+          </div>
+          <div className="p-4 space-y-2 text-sm dark:text-gray-600">
+            <p>
+              Iam not usually one to leave reviews, but I had such an amazing
+              experience with this tourist website that I had to share.
+            </p>
+            <p>
+              From the moment I landed on their page, I was impressed by the
+              breadth of options available. Whether you are a budget traveler or
+              looking for luxury, they have something for everyone. Thanks for
+              making my vacation stress-free!
+            </p>
+          </div>
+        </div>
+        <div className=" mx-5 container flex flex-col w-full max-w-lg p-6  divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800">
+          <div className="flex justify-between p-4">
+            <div className="flex space-x-4">
+              <div>
+                <img
+                  src="https://i.ibb.co/d6vyDNh/m2.jpg"
+                  alt=""
+                  className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                />
+              </div>
+              <div>
+                <h4 className="font-bold">Lorens Bisnoy</h4>
+                <span className="text-xs dark:text-gray-600">7 days ago</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-2 dark:text-yellow-700">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className="w-5 h-5 fill-current"
+              >
+                <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
+              </svg>
+              <span className="text-xl font-bold">4.5</span>
+            </div>
+          </div>
+          <div className="p-4 space-y-2 text-sm dark:text-gray-600">
+            <p>
+              Wow! What an incredible experience! This tourist website helped me
+              plan my dream vacation seamlessly.
+            </p>
+            <p>
+              From booking accommodations to finding hidden gems off the beaten
+              path, their recommendations were spot-on. I cant wait to use this
+              site for my next adventure!
+            </p>
+          </div>
+        </div>
+        <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md bg-slate-800 text-white dark:divide-gray-800 dark:bg-gray-500 dark:text-gray-800">
+          <div className="flex justify-between p-4">
+            <div className="flex space-x-4">
+              <div>
+                <img
+                  src="https://i.ibb.co/sysTXX2/m1.webp"
+                  alt=""
+                  className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                />
+              </div>
+              <div>
+                <h4 className="font-bold">Alex</h4>
+                <span className="text-xs dark:text-gray-600">2 days ago</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-2 dark:text-yellow-700">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                className="w-5 h-5 fill-current"
+              >
+                <path d="M494,198.671a40.536,40.536,0,0,0-32.174-27.592L345.917,152.242,292.185,47.828a40.7,40.7,0,0,0-72.37,0L166.083,152.242,50.176,171.079a40.7,40.7,0,0,0-22.364,68.827l82.7,83.368-17.9,116.055a40.672,40.672,0,0,0,58.548,42.538L256,428.977l104.843,52.89a40.69,40.69,0,0,0,58.548-42.538l-17.9-116.055,82.7-83.368A40.538,40.538,0,0,0,494,198.671Zm-32.53,18.7L367.4,312.2l20.364,132.01a8.671,8.671,0,0,1-12.509,9.088L256,393.136,136.744,453.3a8.671,8.671,0,0,1-12.509-9.088L144.6,312.2,50.531,217.37a8.7,8.7,0,0,1,4.778-14.706L187.15,181.238,248.269,62.471a8.694,8.694,0,0,1,15.462,0L324.85,181.238l131.841,21.426A8.7,8.7,0,0,1,461.469,217.37Z"></path>
+              </svg>
+              <span className="text-xl font-bold">4.7</span>
+            </div>
+          </div>
+          <div className="p-4 space-y-2 text-sm dark:text-gray-600">
+            <p>
+              As a frequent traveler, I will ve used many tourist websites, but
+              none compare to this one.
+            </p>
+            <p>
+              The user-friendly interface made it a breeze to navigate, and the
+              wealth of information provided helped me discover new destinations
+              I never would have found otherwise. 10/10 would recommend!
+            </p>
+          </div>
+        </div>

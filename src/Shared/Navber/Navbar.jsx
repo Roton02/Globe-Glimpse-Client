@@ -47,197 +47,218 @@ const Navbar = () => {
 
   return (
     <div className="relative">
-      {
-        openModal ||
-      <nav className="navbar my-3 z-[100]  w-full  ">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 "
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+      {openModal || (
+        <nav className="navbar my-3 z-[100]  w-full  ">
+          <div className="navbar-start">
+            <div className="dropdown">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost lg:hidden"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <div
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[100] p-2  shadow bg-base-100 rounded-box w-52"
-            >
-              <NavLink
-                to="/"
-                className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/allTourist"
-                className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
-              >
-                Destinations
-              </NavLink>
-
-              <NavLink
-                to="/addTourist"
-                className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
-              >
-                Add Tourists Spot
-              </NavLink>
-              <NavLink
-                to="/myList"
-                className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
-              >
-                My List
-              </NavLink>
-              <button
-                onClick={() => setOpenModal(true)}
-                className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
-              >
-                Contract
-              </button>
-            </div>
-          </div>
-          <Link to="/">
-            <h2 className="text-3xl text-[#ff0000] ">Globe Glimpse</h2>
-          </Link>
-        </div>
-        <div className="navbar-center hidden space-x-2  lg:flex">
-          <NavLink to="/" className=" px-2  font-bold   hover:text-[#ff0000] ">
-            Home
-          </NavLink>
-          <NavLink
-            to="/allTourist"
-            className=" px-2 l font-bold  hover:text-[#ff0000]   "
-          >
-            Destinations
-          </NavLink>
-          <NavLink
-            to="/addTourist"
-            className="  px-2  font-bold hover:text-[#ff0000]   "
-          >
-            Add Tourists Spot
-          </NavLink>
-          <NavLink
-            to="/myList"
-            className=" px-2  font-bold hover:text-[#ff0000]  "
-          >
-            My List
-          </NavLink>
-          <button
-            onClick={() => setOpenModal(true)}
-            className=" border-0 font-bold hover:text-[#ff0000]  "
-          >
-            Contract
-          </button>
-        </div>
-        <div className="navbar-end ">
-          <label className="mr-2 cursor-pointer grid place-items-center">
-            <input
-              type="checkbox"
-              onClick={toggleTheme}
-              checked={theme}
-              className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
-            />
-            <svg
-              className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="12" cy="12" r="5" />
-              <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
-            </svg>
-            <svg
-              className="col-start-2 row-start-1 stroke-base-100 fill-base-100"
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </label>
-
-          {user ? (
-            <div className="flex items-center ">
-              <div className="dropdown dropdown-end">
-                <div tabIndex={0} role="button">
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    className=" border rounded-full border-gray-300 z-[110]  avatar"
-                  >
-                    <div className=" rounded-full w-9 md:w-12  ">
-                      <img alt="" src={user?.photoURL || ""} />
-                    </div>
-                  </div>
-                </div>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content hidden lg:flex  z-[100] menu p-2 gap-2 shadow bg-base-100 rounded-box w-80 "
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 "
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  <div className="flex justify-center">
-                    <img
-                      className="rounded-full w-20 text-center"
-                      src={user?.photoURL || ""}
-                      alt=""
-                    />
-                  </div>
-                  <li className="mx-auto text-xl font-bold ">
-                    ----- {user?.displayName} -----
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/profile"
-                      className="btn btn-sm btn-ghost border-2  border-gray-300 hover:bg-black hover:text-white"
-                    >
-                      Profile
-                    </NavLink>
-                  </li>
-                  
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <div
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[100] p-2  shadow bg-base-100 rounded-box w-52"
+              >
+                <NavLink
+                  to="/"
+                  className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
+                >
+                  Home
+                </NavLink>
+                <NavLink
+                  to="/allTourist"
+                  className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
+                >
+                  Destinations
+                </NavLink>
 
-                  <button
-                    onClick={Logout}
-                    className="btn btn-sm btn-ghost border-2  border-gray-300 hover:bg-black hover:text-white"
-                  >
-                    Logout
-                  </button>
-                </ul>
+                <NavLink
+                  to="/addTourist"
+                  className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
+                >
+                  Add Tourists Spot
+                </NavLink>
+                <NavLink
+                  to="/myList"
+                  className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
+                >
+                  My List
+                </NavLink>
+                <NavLink
+                  to="/addReviews"
+                  className=" btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
+                >
+                  Add Reviews
+                </NavLink>
+
+                <button
+                  onClick={() => setOpenModal(true)}
+                  className="btn btn-ghost border-2 border-gray-300 hover:bg-black hover:text-white "
+                >
+                  Contract
+                </button>
               </div>
             </div>
-          ) : (
-            <Link
-              to="/login"
-              className="rounded-md btn-sm  m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#ff0000] text-[#ff0000] hover:text-white"
-            >
-              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#ff0000] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-              <span className="relative text-[#ff0000] transition duration-300 group-hover:text-white ease">
-                Login
-              </span>
+            <Link to="/">
+              <h2 className="text-3xl text-[#ff0000] ">Globe Glimpse</h2>
             </Link>
-          )}
-        </div>
-      </nav>
-      }
+          </div>
+          <div className="navbar-center hidden space-x-2  lg:flex">
+            <NavLink
+              to="/"
+              className=" px-2  font-bold   hover:text-[#ff0000] "
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/allTourist"
+              className=" px-2 l font-bold  hover:text-[#ff0000]   "
+            >
+              Destinations
+            </NavLink>
+            <NavLink
+              to="/addTourist"
+              className="  px-2  font-bold hover:text-[#ff0000]   "
+            >
+              Add Tourists Spot
+            </NavLink>
+            <NavLink
+              to="/myList"
+              className=" px-2  font-bold hover:text-[#ff0000]  "
+            >
+              My List
+            </NavLink>
+            <NavLink
+              to="/addReviews"
+              className=" px-2  font-bold hover:text-[#ff0000]  "
+            >
+              Add Reviews
+            </NavLink>
+
+            <button
+              onClick={() => setOpenModal(true)}
+              className=" border-0 font-bold hover:text-[#ff0000]  "
+            >
+              Contract
+            </button>
+          </div>
+          <div className="navbar-end ">
+            <label className="mr-2 cursor-pointer grid place-items-center">
+              <input
+                type="checkbox"
+                onClick={toggleTheme}
+                checked={theme}
+                className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
+              />
+              <svg
+                className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+              </svg>
+              <svg
+                className="col-start-2 row-start-1 stroke-base-100 fill-base-100"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </label>
+
+            {user ? (
+              <div className="flex items-center ">
+                <div className="dropdown dropdown-end">
+                  <div tabIndex={0} role="button">
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      className=" border rounded-full border-gray-300 z-[110]  avatar"
+                    >
+                      <div className=" rounded-full w-9 md:w-12  ">
+                        <img alt="" src={user?.photoURL || ""} />
+                      </div>
+                    </div>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content hidden lg:flex  z-[100] menu p-2 gap-2 shadow bg-base-100 rounded-box w-80 "
+                  >
+                    <div className="flex justify-center">
+                      <img
+                        className="rounded-full w-28 h-20 text-center"
+                        src={user?.photoURL || ""}
+                        alt=""
+                      />
+                    </div>
+                    <li className="mx-auto text-xl font-bold ">
+                      ----- {user?.displayName} -----
+                    </li>
+                    <li className="px-20">
+                      <NavLink
+                        to="/profile"
+                        className="btn btn-sm  btn-ghost border-2  border-gray-300 hover:bg-black hover:text-white"
+                      >
+                        Profile
+                      </NavLink>
+                    </li>
+
+                    <li className="px-20 pb-10 pt-2">
+                      <button
+                        onClick={Logout}
+                        className="btn btn-sm  btn-ghost border-2  border-gray-300 hover:bg-black hover:text-white"
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="rounded-md btn-sm  m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#ff0000] text-[#ff0000] hover:text-white"
+              >
+                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#ff0000] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                <span className="relative text-[#ff0000] transition duration-300 group-hover:text-white ease">
+                  Login
+                </span>
+              </Link>
+            )}
+          </div>
+        </nav>
+      )}
 
       <div
         className={`fixed flex justify-center items-center z-[100] ${

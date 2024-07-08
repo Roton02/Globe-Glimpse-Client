@@ -37,13 +37,13 @@ const AllTourist = () => {
         {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
       </Helmet>
       
-      <div className="flex m-3">
-      <div className=" ml-20 mx-auto  ">
+      <div className="flex items-center m-3">
+      <div className=" ml-5 md:ml-20 mx-auto  ">
         <details className="dropdown">
-          <summary className="m-1  btn btn-md bg-black text-white border border-[#ff0000] light:text-black hover:bg-[#ff0000] hover:text-white transition dark:text-white">
+          <summary className="m-1   btn btn-md bg-black text-white border border-[#ff0000] light:text-black hover:bg-[#ff0000] hover:text-white transition dark:text-white">
             Sort By <FaArrowDown></FaArrowDown>
           </summary>
-          <ul className="p-2 ml-12  space-y-2 bg-gray-200 shadow menu dropdown-content z-[1]  rounded-box w-52 py-5">
+          <ul className="p-2 md:ml-12  space-y-2 bg-gray-200 shadow menu dropdown-content z-[1]  rounded-box w-52 py-5">
             <li 
               onClick={() => sort("Assending")}
               className="hover:bg-black btn btn-sm border mx-auto  border-black hover:text-white rounded-lg"
@@ -60,7 +60,7 @@ const AllTourist = () => {
         </details>
       </div>
       <div>
-        <h2 className="text-5xl font-bold mr-20"> All Tourist Spot</h2>
+        <h2 className="text-2xl md:text-5xl font-bold mr-20"> All Tourist Spot</h2>
       </div>
       </div>
       <div className="grid px-4 md:px-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
