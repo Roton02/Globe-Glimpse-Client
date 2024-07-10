@@ -1,30 +1,36 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ReactStars from "react-rating-stars-component";
-import React from "react";
-import { render } from "react-dom";
-
+import { AuthContext } from "../../ContextProvider/ContextProvider";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 const AddReviews = () => {
-  const [reviews, setReviews] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/ClientReview")
-      .then((res) => res.json())
-      .then((res) => {
-        setReviews(res);
-      });
-  }, []);
+  const {  user } = useContext(AuthContext);
+  const [ratings , setRatings] = useState()
+  const { data = [] } = useQuery({
+    queryKey: ['reviews'],
+    queryFn: () => axios.get("http://localhost:5000/ClientReview")
+    .then(res =>  res.data),
+  });
+  console.log(data);
   const ratingChanged = (newRating) => {
     console.log(newRating);
+    setRatings(newRating)
   };
+  const handleSubmit = e =>{
+    e.preventDefault()
+    console.log('object');
+  }
+
   return (
     <div className="flex flex-col-reverse md:flex-row gap-5">
       <div className="w-full md:w-2/3 ">
-        {reviews.map((i) => (
+        {data.map((i) => (
           <div
             key={i._id}
-            className="w-full border-b-2 m px-4 py-3 bg-white rounded-md shadow-md dark:bg-gray-800"
+            className="w-full border-b-2 m px-4 py-3  rounded-md shadow-md dark:bg-gray-800"
           >
             <div className="flex items-center justify-between">
-              <span className="text-sm font-light text-gray-800 dark:text-gray-400">
+              <span className="text-sm font-light ">
                 ----    -----
               </span>
               <span className="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900">
@@ -33,10 +39,10 @@ const AddReviews = () => {
             </div>
 
             <div>
-              <h1 className="mt-2 text-lg font-semibold text-gray-800 dark:text-white">
+              <h1 className="mt-2 text-lg font-semibold ">
                 {i.title}
               </h1>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              <p className="mt-2 text-sm ">
                 {i.description}
               </p>
             </div>
@@ -59,6 +65,8 @@ const AddReviews = () => {
             <h2 className="text-3xl font-semibold text-center">
               Your opinion matters!
             </h2>
+            <form onSubmit={handleSubmit}>
+
             <div className="flex flex-col items-center py-6 space-y-3">
               <span className="text-center">How was your experience?</span>
               <div className="flex space-x-3">
@@ -75,11 +83,12 @@ const AddReviews = () => {
                 <option disabled selected>
                 Tell your feelings
                 </option>
-                <option>Wonderful</option>
-                <option>Amazing</option>
-                <option>Good</option>
-                <option>Satisfied</option>
-                <option>Bad</option>
+                <option>Excellent Service</option>
+                <option>Professional Team</option>
+                <option>Good Service</option>
+                <option>Wonderful Experience</option>
+                <option>Not Good </option>
+                <option>Bad  Service</option>
               </select>
               <textarea
                 rows="3"
@@ -102,6 +111,7 @@ const AddReviews = () => {
                 </a>
               </button>
             </div>
+            </form>
           </div>
         </div>
       </div>
