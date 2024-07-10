@@ -5,6 +5,9 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
 const AddReviews = () => {
+  const now = new Date();
+  const dateString = now.toDateString();
+  console.log(dateString);
   const { user } = useContext(AuthContext);
   const [rating, setRatings] = useState();
   const { data = [], refetch } = useQuery({
@@ -25,17 +28,17 @@ const AddReviews = () => {
     const description = form.description.value;
     const client_name = user.displayName;
     const image = user.photoURL;
-    const addRatings = {  ratings,  title,  description,  client_name,  image };
+    const addRatings = { ratings, title, description, client_name, image,dateString };
     axios.post("http://localhost:5000/AddRatings", addRatings).then((res) => {
-      console.log(res.data );
-      if(res.data.insertedId){
+      console.log(res.data);
+      if (res.data.insertedId) {
         Swal.fire({
           title: "Add your Review!",
           text: "Thank you for giving review!",
-          icon: "success"
+          icon: "success",
         });
-        form.reset()
-        refetch()
+        form.reset();
+        refetch();
       }
     });
   };
@@ -83,7 +86,7 @@ const AddReviews = () => {
                 <span className="text-center">How was your experience?</span>
                 <div className="flex space-x-3">
                   <ReactStars
-                  required
+                    required
                     count={5}
                     onChange={ratingChanged}
                     size={45}
@@ -108,7 +111,7 @@ const AddReviews = () => {
                   <option>Bad Service</option>
                 </select>
                 <textarea
-                required
+                  required
                   rows="3"
                   name="description"
                   placeholder="Message..."
