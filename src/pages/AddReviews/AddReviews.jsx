@@ -51,7 +51,7 @@ const AddReviews = () => {
       if (res.data.insertedId) {
         Swal.fire({
           title: "Add your Review!",
-          text: "Thank you for giving review!",
+          text: "Thank you for giving review in our !",
           icon: "success",
         });
         form.reset();
