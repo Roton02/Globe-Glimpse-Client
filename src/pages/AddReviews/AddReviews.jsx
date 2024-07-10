@@ -18,7 +18,11 @@ const AddReviews = () => {
   };
   const handleSubmit = e =>{
     e.preventDefault()
-    console.log('object');
+    const form = e.target;
+    const rating = ratings;
+    const fill = form.fillings.value;
+    const descripton = form.description.value;
+    console.log(rating,fill,descripton);
   }
 
   return (
@@ -79,7 +83,9 @@ const AddReviews = () => {
               </div>
             </div>
             <div className="flex flex-col w-full">
-              <select className="select select-bordered w-full mb-5  max-w-xs">
+              <select 
+              name="fillings"
+              className="select select-bordered w-full mb-5  max-w-xs">
                 <option disabled selected>
                 Tell your feelings
                 </option>
@@ -92,6 +98,7 @@ const AddReviews = () => {
               </select>
               <textarea
                 rows="3"
+                name="description"
                 placeholder="Message..."
                 className="p-4 border-2 rounded-md resize-none dark:text-gray-800 dark:bg-gray-50"
               ></textarea>
