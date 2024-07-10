@@ -6,7 +6,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 const AddReviews = () => {
   const { user } = useContext(AuthContext);
-  const [ratings, setRatings] = useState();
+  const [rating, setRatings] = useState();
   const { data = [], refetch } = useQuery({
     queryKey: ["rating"],
     queryFn: () =>
@@ -20,12 +20,12 @@ const AddReviews = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const rating = ratings;
-    const fill = form.fillings.value;
-    const descripton = form.description.value;
-    const userName = user.displayName;
-    const userImage = user.photoURL;
-    const addRatings = { rating, fill, descripton, userName, userImage };
+    const ratings = rating;
+    const title = form.fillings.value;
+    const description = form.description.value;
+    const client_name = user.displayName;
+    const image = user.photoURL;
+    const addRatings = {  ratings,  title,  description,  client_name,  image };
     axios.post("http://localhost:5000/AddRatings", addRatings).then((res) => {
       console.log(res.data );
       if(res.data.insertedId){
