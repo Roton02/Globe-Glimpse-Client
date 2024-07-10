@@ -193,7 +193,10 @@
   left: 0;
   z-index: 10;
 }
-
+.pagination .active .page-link {
+  background-color: #3b82f6; /* Tailwind CSS Blue-500 */
+  color: white;
+}
 
 /* banner css end  */
 

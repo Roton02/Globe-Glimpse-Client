@@ -267,7 +267,7 @@ const Navbar = () => {
       >
         <div
           onClick={(e_) => e_.stopPropagation()}
-          className={`relative overflow-x-hidden overflow-y-scroll w-full h-full flex justify-center  drop-shadow-2xl rounded-lg ${
+          className={`relative overflow-x-hidden overflow-y-scroll w-full h-full flex justify-center  drop-shadow-2xl  ${
             openModal
               ? "translate-y-0 opacity-1 duration-500"
               : "translate-y-32 opacity-0 duration-500"

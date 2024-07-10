@@ -78,7 +78,7 @@ import AddReviews from "../pages/AddReviews/AddReviews";
         },
         {
           path:'/addReviews',
-          element:<AddReviews></AddReviews>
+          element:<PrivateRoute><AddReviews></AddReviews></PrivateRoute>
         }
        
       ]

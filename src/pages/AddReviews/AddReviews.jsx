@@ -1,25 +1,36 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
+import ReactPaginate from "react-paginate";
+
 const AddReviews = () => {
-  const now = new Date();
-  const dateString = now.toDateString();
-  console.log(dateString);
+  const dateString = new Date().toISOString();
   const { user } = useContext(AuthContext);
   const [rating, setRatings] = useState();
+  const [currentPage, setCurrentPage] = useState(0);
+  const [perPage] = useState(5);
+
   const { data = [], refetch } = useQuery({
     queryKey: ["rating"],
     queryFn: () =>
       axios.get("http://localhost:5000/ClientReview").then((res) => res.data),
   });
-  console.log(data);
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
+  const offset = currentPage * perPage;
+  const currentPageData = data.slice(offset, offset + perPage);
+  const pageCount = Math.ceil(data.length / perPage);
+
   const ratingChanged = (newRating) => {
-    console.log(newRating);
     setRatings(newRating);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -28,9 +39,15 @@ const AddReviews = () => {
     const description = form.description.value;
     const client_name = user.displayName;
     const image = user.photoURL;
-    const addRatings = { ratings, title, description, client_name, image,dateString };
+    const addRatings = {
+      ratings,
+      title,
+      description,
+      client_name,
+      image,
+      dateString,
+    };
     axios.post("http://localhost:5000/AddRatings", addRatings).then((res) => {
-      console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
           title: "Add your Review!",
@@ -45,25 +62,24 @@ const AddReviews = () => {
 
   return (
     <div className="flex flex-col-reverse md:flex-row gap-5">
-      <div className="w-full md:w-2/3 ">
-        {data.map((i) => (
+      <div className="w-full md:w-2/3">
+        {currentPageData.map((i) => (
           <div
             key={i._id}
-            className="w-full border-b-2 m px-4 py-3  rounded-md shadow-md dark:bg-gray-800"
+            className="w-full border-b-2 px-4 py-3 rounded-md shadow-md dark:bg-gray-800"
           >
             <div className="flex items-center justify-between">
-              <span className="text-sm font-light ">---- -----</span>
+              <span className="text-sm font-light">---- -----</span>
               <span className="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900">
                 {i.ratings} ⭐
               </span>
             </div>
-
             <div>
-              <h1 className="mt-2 text-lg font-semibold ">{i.title}</h1>
-              <p className="mt-2 text-sm ">{i.description}</p>
+              <h1 className="mt-2 text-lg font-semibold">{i.title}</h1>
+              <p className="mt-2 text-sm">{i.description}</p>
             </div>
             <div className="flex gap-5 items-center">
-              <div className="w-16 h-16  mt-4">
+              <div className="w-16 h-16 mt-4">
                 <img
                   className="w-16 h-16 rounded-full"
                   src={i.image}
@@ -74,6 +90,37 @@ const AddReviews = () => {
             </div>
           </div>
         ))}
+        <div className="flex justify-center mt-5">
+          <ReactPaginate
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={3}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination flex justify-center mt-4"}
+            pageClassName={"page-item"}
+            pageLinkClassName={
+              "page-link px-3 py-1 border rounded-lg mx-1 text-gray-700 hover:bg-gray-200"
+            }
+            previousClassName={"page-item"}
+            previousLinkClassName={
+              "page-link px-3 py-1 border rounded-l-lg mx-1 text-gray-700 hover:bg-gray-200"
+            }
+            nextClassName={"page-item"}
+            nextLinkClassName={
+              "page-link px-3 py-1 border rounded-r-lg mx-1 text-gray-700 hover:bg-gray-200"
+            }
+            breakClassName={"page-item"}
+            breakLinkClassName={
+              "page-link px-3 py-1 border rounded-lg mx-1 text-gray-700 hover:bg-gray-200"
+            }
+            activeClassName={"active"}
+            activeLinkClassName={"bg-blue-500 text-white"}
+          />
+        </div>
       </div>
       <div className="w-full md:w-1/3 border-2">
         <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-50 dark:text-gray-800">
@@ -98,7 +145,7 @@ const AddReviews = () => {
                 <select
                   name="fillings"
                   required
-                  className="select select-bordered w-full mb-5  max-w-xs"
+                  className="select select-bordered w-full mb-5 max-w-xs"
                 >
                   <option disabled selected>
                     Tell your feelings
@@ -107,7 +154,7 @@ const AddReviews = () => {
                   <option>Professional Team</option>
                   <option>Good Service</option>
                   <option>Wonderful Experience</option>
-                  <option>Not Good </option>
+                  <option>Not Good</option>
                   <option>Bad Service</option>
                 </select>
                 <textarea
@@ -119,7 +166,7 @@ const AddReviews = () => {
                 ></textarea>
                 <button
                   type="submit"
-                  className=" mt-4  rounded-lg   transition duration-300"
+                  className="mt-4 rounded-lg transition duration-300"
                 >
                   <a
                     href="#_"
