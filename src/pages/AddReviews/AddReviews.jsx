@@ -3,10 +3,11 @@ import ReactStars from "react-rating-stars-component";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import Swal from "sweetalert2";
 const AddReviews = () => {
   const { user } = useContext(AuthContext);
   const [ratings, setRatings] = useState();
-  const { data = [] } = useQuery({
+  const { data = [], refetch } = useQuery({
     queryKey: ["rating"],
     queryFn: () =>
       axios.get("http://localhost:5000/ClientReview").then((res) => res.data),
@@ -27,6 +28,15 @@ const AddReviews = () => {
     const addRatings = { rating, fill, descripton, userName, userImage };
     axios.post("http://localhost:5000/AddRatings", addRatings).then((res) => {
       console.log(res.data );
+      if(res.data.insertedId){
+        Swal.fire({
+          title: "Add your Review!",
+          text: "Thank you for giving review!",
+          icon: "success"
+        });
+        form.reset()
+        refetch()
+      }
     });
   };
 
