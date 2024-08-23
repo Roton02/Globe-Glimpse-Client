@@ -15,7 +15,7 @@ import arrowImage from "../assets/Arrow.png";
 const ClientReview = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/ClientReview")
+    fetch("https://globeglimpse.vercel.app/ClientReview")
       .then((res) => res.json())
       .then((res) => {
         setReviews(res);
@@ -23,12 +23,12 @@ const ClientReview = () => {
   }, []);
 
   return (
-    <div className="border py-16">
+    <div className=" py-16">
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-200">
+        <h2 className="text-4xl font-bold ">
           Client Reviews
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
+        <p className=" mt-2">
           Below are some feedbacks from our valued clients.
         </p>
       </div>
@@ -59,8 +59,8 @@ const ClientReview = () => {
       >
         {reviews.slice(0, 4).map((i) => (
           <SwiperSlide key={i.client_name}>
-            <div className="w-full max-w-sm px-4 py-3 bg-white rounded-md shadow-md dark:bg-gray-800">
-              <div className="flex items-center justify-between">
+            <div className="w-full max-w-sm h-56 px-4 py-3 border-2 border-purple-700   rounded-md shadow-md bg-gray-800">
+              <div className="flex items-center justify-between p-2">
                 <span className="text-sm font-light text-gray-800 dark:text-gray-400">
                   {i.reaction}
                 </span>
@@ -77,26 +77,26 @@ const ClientReview = () => {
                   {i.description.slice(0, 75)}{" "}
                   <span className="ml-3 text-blue-400">
                     {" "}
-                    <Link to='/AddReviews'>More...</Link>{" "}
+                    <Link to="/AddReviews">More...</Link>{" "}
                   </span>
                 </p>
               </div>
 
               <div className="flex gap-5 items-end">
-              <div className="w-16 h-16  mt-4">
-                <img
-                  className="w-16 h-16 rounded-full"
-                  src={i.image}
-                  alt={i.client_name}
-                />
-              </div>
-              <h2 className="text-2xl">{i.client_name}</h2>
+                <div className="w-16 h-16  mt-4">
+                  <img
+                    className="w-16 h-16 rounded-full"
+                    src={i.image}
+                    alt={i.client_name}
+                  />
+                </div>
+                <h2 className="text-2xl">{i.client_name}</h2>
               </div>
             </div>
           </SwiperSlide>
         ))}
         <SwiperSlide>
-          <Link to='/AddReviews'>
+          <Link to="/AddReviews">
             <div className="w-full max-w-sm px-4 py-3  rounded-md shadow-md bg-gray-100">
               <div className="flex border border-dotted border-red-500 flex-col justify-center items-center my-auto">
                 <div className="w-36">

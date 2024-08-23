@@ -16,7 +16,7 @@ const AddReviews = () => {
   const { data = [], refetch } = useQuery({
     queryKey: ["rating"],
     queryFn: () =>
-      axios.get("http://localhost:5000/ClientReview").then((res) => res.data),
+      axios.get("https://globeglimpse.vercel.app/ClientReview").then((res) => res.data),
   });
 
   const handlePageClick = ({ selected }) => {
@@ -47,7 +47,7 @@ const AddReviews = () => {
       image,
       dateString,
     };
-    axios.post("http://localhost:5000/AddRatings", addRatings).then((res) => {
+    axios.post("https://globeglimpse.vercel.app/AddRatings", addRatings).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           title: "Add your Review!",
@@ -59,7 +59,7 @@ const AddReviews = () => {
       }
     });
   };
-
+  // 
   return (
     <div className="flex flex-col-reverse md:flex-row gap-5">
       <div className="w-full md:w-2/3">

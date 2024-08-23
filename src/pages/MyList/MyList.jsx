@@ -11,7 +11,7 @@ const MyList = () => {
   const [userspot, setUserSpot] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addTousristSpot/${user.email}`)
+    fetch(`https://globeglimpse.vercel.app/addTousristSpot/${user.email}`)
       .then((response) => response.json())
       .then((data) => {
         setUserSpot(data);
@@ -29,7 +29,7 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/addTousristSpot/${id}`, {
+        fetch(`https://globeglimpse.vercel.app/addTousristSpot/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

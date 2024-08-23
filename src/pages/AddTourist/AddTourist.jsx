@@ -34,7 +34,7 @@ const AddTourist = () => {
       short_description,
     };
 
-    fetch("http://localhost:5000/addTousristSpot", {
+    fetch("https://globeglimpse.vercel.app/addTousristSpot", {
       method: "POST",
       body: JSON.stringify(newItem),
       headers: {
