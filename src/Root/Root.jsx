@@ -11,9 +11,9 @@ const Root = () => {
     console.log(navigation);
     
     return (
-        <div className="py-1 max-w-7xl overflow-x-hidden   mx-auto">
+        <div className="overflow-x-hidden">
             <Navbar></Navbar>
-            <div className='min-h-[calc(100vh-117px)]'>
+            <div className='min-h-[calc(100vh-117px)] py-1 max-w-7xl overflow-x-hidden   mx-auto'>
             <Outlet></Outlet>
             </div>
             <Footer></Footer>

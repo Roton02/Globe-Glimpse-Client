@@ -11,12 +11,14 @@ const AddReviews = () => {
   const { user } = useContext(AuthContext);
   const [rating, setRatings] = useState();
   const [currentPage, setCurrentPage] = useState(0);
-  const [perPage] = useState(5);
+  const [perPage] = useState(3);
 
   const { data = [], refetch } = useQuery({
     queryKey: ["rating"],
     queryFn: () =>
-      axios.get("https://globeglimpse.vercel.app/ClientReview").then((res) => res.data),
+      axios
+        .get("https://globeglimpse.vercel.app/ClientReview")
+        .then((res) => res.data),
   });
 
   const handlePageClick = ({ selected }) => {
@@ -47,26 +49,28 @@ const AddReviews = () => {
       image,
       dateString,
     };
-    axios.post("https://globeglimpse.vercel.app/AddRatings", addRatings).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          title: "Add your Review!",
-          text: "Thank you for giving review in our !",
-          icon: "success",
-        });
-        form.reset();
-        refetch();
-      }
-    });
+    axios
+      .post("https://globeglimpse.vercel.app/AddRatings", addRatings)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "Add your Review!",
+            text: "Thank you for giving review in our !",
+            icon: "success",
+          });
+          form.reset();
+          refetch();
+        }
+      });
   };
-  // 
+  //
   return (
     <div className="flex flex-col-reverse md:flex-row gap-5">
-      <div className="w-full md:w-2/3">
+      <div className="w-full md:w-2/3 mb-8">
         {currentPageData.map((i) => (
           <div
             key={i._id}
-            className="w-full border-b-2 px-4 py-3 rounded-md shadow-md dark:bg-gray-800"
+            className="w-full border m-1 border-[#ff0000]  text-white  border-b-2 px-4 py-3 rounded-md shadow-md bg-gray-800"
           >
             <div className="flex items-center justify-between">
               <span className="text-sm font-light">---- -----</span>
@@ -122,8 +126,8 @@ const AddReviews = () => {
           />
         </div>
       </div>
-      <div className="w-full md:w-1/3 border-2">
-        <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-50 dark:text-gray-800">
+      <div className="w-full md:w-1/3 ">
+        <div className="flex flex-col max-w-xl p-8 shadow-sm  lg:p-12 dark:bg-gray-50 dark:text-gray-800">
           <div className="flex flex-col items-center w-full">
             <h2 className="text-3xl font-semibold text-center">
               Your opinion matters!
@@ -145,7 +149,7 @@ const AddReviews = () => {
                 <select
                   name="fillings"
                   required
-                  className="select select-bordered w-full mb-5 max-w-xs"
+                  className="select select-bordered bg-white w-full mb-5 max-w-xs"
                 >
                   <option disabled selected>
                     Tell your feelings
