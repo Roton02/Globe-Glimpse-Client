@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 const TouristSpot = ({ loaderData }) => {
   return (
-    <div>
+    <div className="">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 lg:grid-cols-5  my-7">
         {loaderData.slice(0, 10).map((ld) => (
           <Link key={ld._id} to={`/details/${ld._id}`}>
@@ -22,9 +23,6 @@ const TouristSpot = ({ loaderData }) => {
                 </div>
               </div>
             </div>
-
-
-    
           </Link>
         ))}
       </div>

@@ -50,16 +50,16 @@ const Navbar = () => {
   }, [openModal]);
 
   return (
-    <div className="relative max-w-7xl mx-auto">
+    <div className="relative max-w-7xl mx-auto md:px-5 lg:px-2">
       {openModal || (
         <nav className="navbar my-3 z-[100]  w-full  ">
           <div className="navbar-start ">
             <div className="block md:block lg:hidden">
               <div className="text-center">
-                <button className="" type="button" onClick={toggleDrawer}>
+                <button className="md:mr-5" type="button" onClick={toggleDrawer}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 ml-5"
+                    className="w-6 h-6 mx-2"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -84,7 +84,7 @@ const Navbar = () => {
                   className="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"
                 >
                   
-                  <h2 className="text-2xl ml-2 text-[#ff0000] border-b-2 border-[#ff0000] ">Globe Glimpse</h2>
+                  <h2 className="text-2xl   text-nowrap text-[#ff0000] border-b-2 border-[#ff0000] ">Globe Glimpse</h2>
                 </h5>
                 <button
                   type="button"
@@ -375,7 +375,7 @@ const Navbar = () => {
               </div>
             </div>
             <Link to="/">
-              <h2 className="text-3xl ml-2 text-[#ff0000] ">Globe Glimpse</h2>
+              <h2 className=" text-2xl text-nowrap md:text-3xl md:ml-2 text-[#ff0000] ">Globe Glimpse</h2>
             </Link>
           </div>
           <div className="navbar-center hidden space-x-2  lg:flex">
@@ -418,7 +418,7 @@ const Navbar = () => {
             </button>
           </div>
           <div className="navbar-end ">
-            <label className="mr-2 cursor-pointer grid place-items-center">
+            <label className="mr-5 cursor-pointer grid place-items-center">
               <input
                 type="checkbox"
                 onClick={toggleTheme}

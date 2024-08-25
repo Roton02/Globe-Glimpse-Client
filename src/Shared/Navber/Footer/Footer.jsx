@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <div className="w-screen mx-auto bg-black ">
+    <div className="w-screen mx-auto bg-black overflow-x-hidden">
       <div className="px-4 text-white pt-16 max-w-7xl mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
           <div className="md:max-w-md lg:col-span-2">

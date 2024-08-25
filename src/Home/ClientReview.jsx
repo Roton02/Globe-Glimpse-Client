@@ -23,7 +23,7 @@ const ClientReview = () => {
   }, []);
 
   return (
-    <div className=" py-16">
+    <div className=" py-16 ">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold ">Client Reviews</h2>
         <p className=" mt-2">
