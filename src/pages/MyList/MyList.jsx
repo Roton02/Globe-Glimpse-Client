@@ -49,44 +49,48 @@ const MyList = () => {
   };
 
   return (
-    <div className="overflow-x-auto md:w-4/5 mx-auto mt-4">
+    <div className="  md:w-4/5 mx-auto mt-4">
       <Helmet>
         <title>My List</title>
       </Helmet>
-      <div className="bg-green-100  border border-black">
+      <div className="bg-green-100  ">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-slate-200 text-white">
             <tr className="text-black ">
-              <th className="px-6 py-3"></th>
-              <th className="px-6 py-3">Tourist</th>
-              <th className="px-6 py-3">Season</th>
-              <th className="px-6 py-3">Country</th>
-              <th className="px-6 py-3">Update</th>
-              <th className="px-6 py-3">Delete</th>
+              <th className="md:px-3 py-1 px-1 md:py-2">No</th>
+              <th className="md:px-3 py-1 px-1 md:py-2">Tourist</th>
+              <th className="md:px-3 py-1 px-1 md:py-2">Season</th>
+              <th className="md:px-3 py-1 px-1 md:py-2">Country</th>
+              <th className="md:px-3 py-1 px-1 md:py-2">Update</th>
+              <th className="md:px-3 py-1 px-1 md:py-2">Delete</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y  divide-gray-200">
+          <tbody className="bg-white divide-y  divide-gray-200 ">
             {userspot.map((spot, index) => (
               <tr key={spot._id} className="text-center">
-                <td className="px-6 py-4 whitespace-nowrap text-black">{index + 1}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-black">{spot.Tourist}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-black">
+                <td className="md:px-4  py-2 px-1 whitespace-nowrap text-black">
+                  {index + 1}
+                </td>
+                <td className="md:px-4  py-2 px-1 whitespace-nowrap text-black">
+                  {spot.Tourist}
+                </td>
+                <td className="md:px-4  py-2 px-1 whitespace-nowrap text-black">
                   {spot.seasonality}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-black">
+                <td className="md:px-4  py-2 px-1 whitespace-nowrap text-black">
                   {spot.countryName}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-black">
+                <td className="md:px-4  py-2 px-1 whitespace-nowrap text-black">
                   <Link to={`/updateTourist/${spot._id}`}>
-                    <button className="btn bg-pink-600 text-white p-2 px-4 rounded-md hover:bg-pink-700">
+                    <button className="btn btn-sm bg-green-400 text-white p-2 px-2 rounded-md hover:bg-pink-700">
                       <FaRegEdit />
                     </button>
                   </Link>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
+                <td className="md:px-4  py-2 px-1 whitespace-nowrap">
                   <button
                     onClick={() => handleDelete(spot._id)}
-                    className="btn bg-red-600 text-white p-2 px-4 rounded-md hover:bg-red-700"
+                    className="btn btn-sm bg-red-500 text-white p-2 px-2 rounded-md hover:bg-red-700"
                   >
                     <MdDeleteForever />
                   </button>
