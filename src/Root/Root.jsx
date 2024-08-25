@@ -3,7 +3,7 @@ import {Outlet, useNavigation} from 'react-router-dom'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import Navbar from '../Shared/Navber/Navbar';
-import Footer from '../Shared/Navber/Footer/Footer';
+import { Footer } from '../Shared/Navber/Footer/Footer';
 AOS.init();
 
 const Root = () => {
