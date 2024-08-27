@@ -3,7 +3,6 @@ import "animate.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../ContextProvider/ContextProvider";
 import { Link, NavLink } from "react-router-dom";
-import { Controller } from "swiper/modules";
 import Contract from "../../Home/Contract";
 
 const Navbar = () => {

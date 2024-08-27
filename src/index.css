@@ -1,32 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rancho&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rancho&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-.logo,h1, h2, h3, h4 {
-    font-family: "Rancho", cursive;
-    letter-spacing: 1px;
+.logo,
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Rancho", cursive;
+  letter-spacing: 1px;
 }
 
-
-
 .heading-font {
-    font-family: "Rancho", cursive;
-    letter-spacing: 1px;
+  font-family: "Rancho", cursive;
+  letter-spacing: 1px;
 }
 
 .active {
-    color: #EF4444;
-    border-bottom: 2px solid #EF4444;
+  color: #ef4444;
+  border-bottom: 2px solid #ef4444;
 }
 
 .text-red {
-    color: #EF4444;
+  color: #ef4444;
 }
 .bg-red {
-    background-color: #EF4444;
+  background-color: #ef4444;
 }
 
 /* modal box css */
@@ -38,117 +39,112 @@
 /* btn css  */
 
 .btn-overlay::after {
-  content: '';
+  content: "";
   width: 0%;
   height: 0%;
-  background-color: #EF4444;
+  background-color: #ef4444;
   position: absolute;
   bottom: 0;
   left: 0;
-  transition: .5s;
+  transition: 0.5s;
   z-index: 10;
 }
 .btn-overlay:hover::after {
   width: 50%;
   height: 100%;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-
 .btn-overlay::before {
-  content: '';
+  content: "";
   width: 0%;
   height: 0%;
-  background-color: #EF4444;
+  background-color: #ef4444;
   position: absolute;
   top: 0;
   right: 0;
-  transition: .5s;
+  transition: 0.5s;
   z-index: 10;
 }
 .btn-overlay:hover::before {
   width: 50%;
   height: 100%;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-
 .btn-overlay2::after {
-  content: '';
+  content: "";
   width: 50%;
   height: 100%;
-  background-color: #EF4444;
+  background-color: #ef4444;
   position: absolute;
   bottom: 0;
   left: 0;
-  transition: .5s;
+  transition: 0.5s;
   z-index: 10;
 }
 .btn-overlay2:hover::after {
   width: 0%;
   height: 0%;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-
 .btn-overlay2::before {
-  content: '';
+  content: "";
   width: 50%;
   height: 100%;
-  background-color: #EF4444;
+  background-color: #ef4444;
   position: absolute;
   top: 0;
   right: 0;
-  transition: .5s;
+  transition: 0.5s;
   z-index: 10;
 }
 .btn-overlay2:hover::before {
   width: 0%;
   height: 0%;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 /* banner  */
 
 .btn-overlay3::after {
-  content: '';
+  content: "";
   width: 50%;
   height: 100%;
-  background-color: #FF0000;
+  background-color: #ff0000;
   position: absolute;
   bottom: 0;
   left: 0;
-  transition: .5s;
+  transition: 0.5s;
   z-index: 10;
 }
 .btn-overlay3:hover::after {
   width: 0%;
   height: 0%;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-
 .btn-overlay3::before {
-  content: '';
+  content: "";
   width: 50%;
   height: 100%;
-  background-color: #FF0000;
+  background-color: #ff0000;
   position: absolute;
   top: 0;
   right: 0;
-  transition: .5s;
+  transition: 0.5s;
   z-index: 10;
 }
 .btn-overlay3:hover::before {
   width: 0%;
   height: 0%;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .card-lavel {
-  clip-path: polygon(9% 0, 90% 3%, 100% 94%, 0 100%)
+  clip-path: polygon(9% 0, 90% 3%, 100% 94%, 0 100%);
 }
-
 
 /* banner css  */
 
@@ -162,29 +158,34 @@
   background-color: #ffffff !important;
 }
 .slide1 {
-  background: url('https://i.ibb.co/yWP1rr6/s20.jpg') no-repeat center center/cover;
+  background: url("https://i.ibb.co/yWP1rr6/s20.jpg") no-repeat center
+    center/cover;
 }
 .slide2 {
-  background: url('https://i.ibb.co/y6bsNg6/s5.jpg') no-repeat center center/cover;
+  background: url("https://i.ibb.co/y6bsNg6/s5.jpg") no-repeat center
+    center/cover;
 }
 .slide3 {
-  background: url('https://i.ibb.co/zXtScGv/s222222.jpg') no-repeat center center/cover;
+  background: url("https://i.ibb.co/zXtScGv/s222222.jpg") no-repeat center
+    center/cover;
 }
 .slide4 {
-  background: url('https://i.ibb.co/jMjcLKY/slide5.jpg') no-repeat center center/cover;
+  background: url("https://i.ibb.co/jMjcLKY/slide5.jpg") no-repeat center
+    center/cover;
 }
 .banner {
-  background: url('https://i.ibb.co/9V7FwQw/slide6.jpg') no-repeat center center/cover;
+  background: url("https://i.ibb.co/9V7FwQw/slide6.jpg") no-repeat center
+    center/cover;
 }
 .swiper-pagination-bullet {
-    width: 15px !important;
-    height: 15px !important;
-    background-color: #EF4444 !important;
-    margin-bottom: 30px !important;
+  width: 15px !important;
+  height: 15px !important;
+  background-color: #ef4444 !important;
+  margin-bottom: 30px !important;
 }
 
 .banner-overlay::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 100%;
   background-color: #16151598;
@@ -203,7 +204,13 @@
 /* blog  */
 
 .blog {
-  background-image:linear-gradient(112.1deg, rgba(32, 38, 57, 0.479) 11.4%, rgba(63, 76, 119, 0.63) 70.2%), url('./assets/blog3.jpg'); background-position: center center; 
-  background-blend-mode: multiply; 
-  background-size: cover
+  background-image: linear-gradient(
+      112.1deg,
+      rgba(32, 38, 57, 0.479) 11.4%,
+      rgba(63, 76, 119, 0.63) 70.2%
+    ),
+    url("./assets/blog3.jpg");
+  background-position: center center;
+  background-blend-mode: multiply;
+  background-size: cover;
 }
