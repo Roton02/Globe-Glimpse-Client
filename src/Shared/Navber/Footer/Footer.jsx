@@ -1,6 +1,8 @@
+import ScrollToTop from "react-scroll-to-top";
 export const Footer = () => {
   return (
     <div className="w-screen mx-auto bg-black overflow-x-hidden">
+      <ScrollToTop height="100" style={{backgroundColor:"#ff0000"}} className="text-center flex justify-center items-center mx-auto bg-purple-500" top={1000} smooth />
       <div className="px-4 text-white pt-16 max-w-7xl mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
           <div className="md:max-w-md lg:col-span-2">
@@ -10,7 +12,6 @@ export const Footer = () => {
               title="Company"
               className="inline-flex items-center"
             >
-              
               <span className="ml-2 text-xl font-bold tracking-wide  uppercase">
                 Globe Glimpse
               </span>
@@ -28,9 +29,7 @@ export const Footer = () => {
           </div>
           <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
             <div>
-              <p className="font-semibold tracking-wide ">
-                Category
-              </p>
+              <p className="font-semibold tracking-wide ">Category</p>
               <ul className="mt-2 space-y-2">
                 <li>
                   <a
@@ -67,9 +66,7 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <p className="font-semibold tracking-wide ">
-                Business
-              </p>
+              <p className="font-semibold tracking-wide ">Business</p>
               <ul className="mt-2 space-y-2">
                 <li>
                   <a
@@ -114,9 +111,7 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <p className="font-semibold tracking-wide ">
-                Apples
-              </p>
+              <p className="font-semibold tracking-wide ">Apples</p>
               <ul className="mt-2 space-y-2">
                 <li>
                   <a
@@ -161,9 +156,7 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <p className="font-semibold tracking-wide ">
-                Cherry
-              </p>
+              <p className="font-semibold tracking-wide ">Cherry</p>
               <ul className="mt-2 space-y-2">
                 <li>
                   <a
@@ -203,7 +196,7 @@ export const Footer = () => {
         </div>
         <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
           <p className="text-sm ">
-            © Copyright  {new Date().getFullYear()} Inc. All rights reserved.
+            © Copyright {new Date().getFullYear()} Inc. All rights reserved.
           </p>
           <div className="flex items-center mt-4 space-x-4 sm:mt-0">
             <a
