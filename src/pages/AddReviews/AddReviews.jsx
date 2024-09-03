@@ -65,7 +65,7 @@ const AddReviews = () => {
   };
   //
   return (
-    <div className="flex flex-col-reverse md:flex-row gap-5">
+    <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row gap-5">
       <div className="w-full md:w-2/3 mb-8">
         {currentPageData.map((i) => (
           <div

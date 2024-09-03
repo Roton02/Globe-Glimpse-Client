@@ -70,7 +70,7 @@ const AddTourist = () => {
         loop
         autoplay
       />
-      <div className=" relative z-10 ;">
+      <div className=" relative z-10 max-w-7xl mx-auto">
         <Helmet>
           <title>Add New Tourist Spot</title>
         </Helmet>
@@ -85,7 +85,10 @@ const AddTourist = () => {
           </div>
         </header>
         <section className="mx-auto pt-10 px-4 md:px-0">
-          <form onSubmit={handleSubmit} className="p-8 md:px-20 lg:px-36 rounded-lg shadow-lg">
+          <form
+            onSubmit={handleSubmit}
+            className="p-8 md:px-20 lg:px-36 "
+          >
             <h2 className="text-2xl font-bold text-black mb-6">
               Add a New Tourist Spot
             </h2>
@@ -94,7 +97,7 @@ const AddTourist = () => {
                 <label className="block text-gray-700 mb-1">
                   Tourist Spot Name
                 </label>
-                
+
                 <input
                   type="text"
                   name="Tourist"
@@ -114,7 +117,7 @@ const AddTourist = () => {
                 />
               </div>
               <div className="col-span-2 md:col-span-1">
-                <label className="block text-gray-700 mb-1">Country Name</label> 
+                <label className="block text-gray-700 mb-1">Country Name</label>
                 <select
                   name="desh"
                   className="mt-2 bg-black text-white p-3 w-full border-b-2 focus:outline-none focus:border-purple-500"
@@ -141,7 +144,7 @@ const AddTourist = () => {
                 />
               </div>
               <div className="col-span-2 md:col-span-1">
-                <label className="block text-gray-700 mb-1">Average Cost</label> 
+                <label className="block text-gray-700 mb-1">Average Cost</label>
                 <input
                   type="number"
                   name="cost"
@@ -165,7 +168,7 @@ const AddTourist = () => {
                   <option>Dry season</option>
                 </select>
               </div>
-              
+
               <div className="col-span-2">
                 <label className="block text-gray-700 mb-1">Location</label>
                 <input

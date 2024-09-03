@@ -13,7 +13,7 @@ const Root = () => {
     return (
         <div className="overflow-x-hidden">
             <Navbar></Navbar>
-            <div className='min-h-[calc(100vh-117px)] py-1 max-w-7xl    mx-auto'>
+            <div className='min-h-[calc(100vh-117px)] py-1    mx-auto'>
             <Outlet></Outlet>
             </div>
             <Footer></Footer>

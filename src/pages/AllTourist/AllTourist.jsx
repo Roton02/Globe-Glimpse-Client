@@ -30,40 +30,48 @@ const AllTourist = () => {
   return (
     <div>
       <div>
-      <Hero heading={'Destinations List'} subHeading={'Modern & Beautiful WordPress Theme for all Kinds of Travel and Tourism Busines.'}></Hero>
+        <Hero
+          heading={"Destinations List"}
+          subHeading={
+            "Modern & Beautiful WordPress Theme for all Kinds of Travel and Tourism Busines."
+          }
+        ></Hero>
       </div>
       <Helmet>
         <title>All Tourist</title>
         {/* <link rel="canonical" href="https://www.tacobell.com/" /> */}
       </Helmet>
-      
-      <div className="flex items-center m-3">
-      <div className=" ml-5 md:ml-20 mx-auto  ">
-        <details className="dropdown">
-          <summary className="m-1   btn btn-md bg-black text-white border border-[#ff0000] light:text-black hover:bg-[#ff0000] hover:text-white transition dark:text-white">
-            Sort By <FaArrowDown></FaArrowDown>
-          </summary>
-          <ul className="p-2 md:ml-12  space-y-2 bg-gray-200 shadow menu dropdown-content z-[1]  rounded-box w-52 py-5">
-            <li 
-              onClick={() => sort("Assending")}
-              className="hover:bg-black btn btn-sm border mx-auto  border-black hover:text-white rounded-lg"
-            >
-              <button>Cost Low to High</button>
-            </li>
-            <li
-              onClick={() => sort("Dessending")}
-              className="hover:bg-black border btn btn-sm  mx-auto  border-black hover:text-white rounded-lg"
-            >
-              <button>Cost High to Low</button>
-            </li>
-          </ul>
-        </details>
+
+      <div className="flex items-center m-3 max-w-7xl mx-auto">
+        <div className=" ml-5 md:ml-20 mx-auto  ">
+          <details className="dropdown">
+            <summary className="m-1   btn btn-md bg-black text-white border border-[#ff0000] light:text-black hover:bg-[#ff0000] hover:text-white transition dark:text-white">
+              Sort By <FaArrowDown></FaArrowDown>
+            </summary>
+            <ul className="p-2 md:ml-12  space-y-2 bg-gray-200 shadow menu dropdown-content z-[1]  rounded-box w-52 py-5">
+              <li
+                onClick={() => sort("Assending")}
+                className="hover:bg-black btn btn-sm border mx-auto  border-black hover:text-white rounded-lg"
+              >
+                <button>Cost Low to High</button>
+              </li>
+              <li
+                onClick={() => sort("Dessending")}
+                className="hover:bg-black border btn btn-sm  mx-auto  border-black hover:text-white rounded-lg"
+              >
+                <button>Cost High to Low</button>
+              </li>
+            </ul>
+          </details>
+        </div>
+        <div>
+          <h2 className="text-2xl md:text-5xl font-bold mr-20">
+            {" "}
+            All Tourist Spot
+          </h2>
+        </div>
       </div>
-      <div>
-        <h2 className="text-2xl md:text-5xl font-bold mr-20"> All Tourist Spot</h2>
-      </div>
-      </div>
-      <div className="grid px-4 md:px-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid max-w-7xl mx-auto px-4 md:px-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {data.map((ld) => (
           <div key={ld._id} className="card bg-base-100 shadow-xl">
             <div className="relative p-5">
@@ -90,10 +98,10 @@ const AllTourist = () => {
               </div>
 
               <p>
-                {ld.short_description.slice(0,70)}{" "}
+                {ld.short_description.slice(0, 70)}{" "}
                 <span className="text-orange-500 font-semibold"> More ...</span>
               </p>
-           
+
               <div className="pt-1">
                 <Link to={`/details/${ld._id}`}>
                   <a

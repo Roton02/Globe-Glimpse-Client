@@ -12,7 +12,7 @@ const CountriesSection = () => {
       });
   }, []);
   return (
-    <div className="grid grid-cols-1 mb-5 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div className=" max-w-7xl mx-auto grid grid-cols-1 mb-5 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {coutryData.map((country) => {
         return (
           //   <Link to={`/ReleteCountryData/${country?.name}`} key={country._id} className="card  bg-slate-100 border-2 shadow-xl">

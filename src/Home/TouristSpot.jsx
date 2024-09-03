@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const TouristSpot = ({ loaderData }) => {
   return (
-    <div className="">
+    <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 lg:grid-cols-5  my-7">
         {loaderData.slice(0, 10).map((ld) => (
           <Link key={ld._id} to={`/details/${ld._id}`}>

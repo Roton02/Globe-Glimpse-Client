@@ -49,7 +49,7 @@ const MyList = () => {
   };
 
   return (
-    <div className="  md:w-4/5 mx-auto mt-4">
+    <div className="max-w-7xl mx-auto  md:w-4/5  mt-4">
       <Helmet>
         <title>My List</title>
       </Helmet>

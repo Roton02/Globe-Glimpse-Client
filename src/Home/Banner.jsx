@@ -24,7 +24,7 @@ const Banner = () => {
         <SwiperSlide>
           <div className="slide1 w-full h-[70vh] md:min-h-[90vh] banner-overlay relative">
             <div className="flex items-center h-[60vh] md:h-[80vh]">
-              <div className="w-4/5 mx-auto z-40 relative space-y-3">
+              <div className="max-w-7xl mx-auto w-4/5  z-40 relative space-y-3">
                 <h2 className="text-white font-bold text-5xl  md:6xl lg:text-8xl">
                   <span className="text-[#FF4838]">
                     {" "}
