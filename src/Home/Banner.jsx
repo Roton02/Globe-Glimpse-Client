@@ -11,7 +11,7 @@ import TypeWriter from "./TypeWriter";
 
 const Banner = () => {
   return (
-    <div className="mb-20 ">
+    <div className="mb-20 mt-0">
       <Swiper
         pagination={{ clickable: true }}
         modules={[Pagination, Autoplay]}
